@@ -246,12 +246,12 @@ function generateCityHtml(cityName, stateSlug, citySlug, state, county) {
         </ul>
       </nav>
 
-      <div style="display: flex; align-items: center; gap: 0.85rem;">
+      <div style="display: flex; align-items: center; gap: 0.65rem; flex-shrink: 0;">
         <a href="tel:+18338030415" class="btn btn-call" id="header-phone-cta">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <span>+1 (833) 803-0415</span>
+          <span>(833) 803-0415</span>
         </a>
-        <a href="/contact-us/" class="btn btn-primary" style="padding: 0.65rem 1.25rem;">Estimate</a>
+        <a href="/contact-us/" class="btn btn-primary header-estimate-btn">Estimate</a>
         <button class="hamburger-btn" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
@@ -268,7 +268,7 @@ function generateCityHtml(cityName, stateSlug, citySlug, state, county) {
         <li><a href="/contact-us/" class="nav-link">Contact & Estimate Desk</a></li>
         <li style="padding-top: 0.5rem;">
           <a href="tel:+18338030415" class="btn btn-call" style="width: 100%;">
-            Call Now: +1 (833) 803-0415
+            Call Now: (833) 803-0415
           </a>
         </li>
       </ul>
@@ -301,7 +301,7 @@ function generateCityHtml(cityName, stateSlug, citySlug, state, county) {
           <div class="btn-group">
             <a href="tel:+18338030415" class="btn btn-call btn-lg">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              <span>Call +1 (833) 803-0415</span>
+              <span>Call (833) 803-0415</span>
             </a>
             <a href="#contact-section" class="btn btn-secondary btn-lg">Request Estimate Online</a>
           </div>
@@ -524,7 +524,7 @@ function generateCityHtml(cityName, stateSlug, citySlug, state, county) {
             <div style="font-size: 1.15rem; color: var(--color-text-muted); margin-bottom: 0.5rem;">Immediate Emergency Dispatch:</div>
             <a href="tel:+18338030415" style="font-size: 2rem; font-weight: 800; color: var(--color-accent); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              <span>+1 (833) 803-0415</span>
+              <span>(833) 803-0415</span>
             </a>
             <div style="font-size: 0.9rem; color: var(--color-text-muted); margin-top: 0.35rem;">Open 24 Hours / 7 Days a Week • Serving ${cityName}, ${stateCode}</div>
           </div>
@@ -566,7 +566,7 @@ function generateCityHtml(cityName, stateSlug, citySlug, state, county) {
             Nationwide heating, furnace repair, and diagnostic technicians available 24/7. Upfront flat-rate pricing, background-checked technicians, and genuine OEM heating components.
           </p>
           <div style="font-weight: 700; color: #ffffff; font-size: 1.1rem; margin-bottom: 0.5rem;">
-            Emergency Dispatch: <a href="tel:+18338030415" style="color: #fdba74;">+1 (833) 803-0415</a>
+            Emergency Dispatch: <a href="tel:+18338030415" style="color: #fdba74;">(833) 803-0415</a>
           </div>
           <div style="font-size: 0.85rem; color: #64748b;">Dispatched locally across ${cityName}, ${stateName}.</div>
         </div>
@@ -625,11 +625,11 @@ function generateCityHtml(cityName, stateSlug, citySlug, state, county) {
 
   <!-- Mobile Sticky Phone CTA Bar -->
   <div class="sticky-mobile-bar">
-    <a href="tel:+18338030415" class="btn btn-call" style="flex: 1.4; padding: 0.75rem 0.5rem; font-size: 0.95rem; font-weight: 700; border-radius: var(--radius-md); text-align: center; display: inline-flex; align-items: center; justify-content: center; gap: 0.35rem;">
+    <a href="tel:+18338030415" class="btn btn-call sticky-call-btn">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      <span>Call (833) 803-0415</span>
+      <span>(833) 803-0415</span>
     </a>
-    <a href="#contact-section" class="btn btn-primary" style="flex: 1; padding: 0.75rem 0.5rem; font-size: 0.95rem; font-weight: 700; border-radius: var(--radius-md); text-align: center;">
+    <a href="#contact-section" class="btn btn-primary sticky-estimate-btn">
       <span>Estimate</span>
     </a>
   </div>
