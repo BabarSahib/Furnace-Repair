@@ -39,17 +39,17 @@ const featuredStates = states.slice(0, 12);
 const homeServiceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "@id": "https://furnacefixpros.com/#service",
+  "@id": "https://furnacefixpros.us/#service",
   "name": "Same Day Furnace Repair & Emergency Heating Service",
   "serviceType": "Furnace Repair",
   "description": "Nationwide same day furnace repair, 24/7 emergency heating diagnostics, and heating restoration. Upfront flat-rate pricing and licensed heating technicians.",
-  "url": "https://furnacefixpros.com/",
+  "url": "https://furnacefixpros.us/",
   "provider": {
     "@type": "HVACBusiness",
-    "@id": "https://furnacefixpros.com/#organization",
+    "@id": "https://furnacefixpros.us/#organization",
     "name": "FurnaceFix Pros",
     "telephone": "+18338030415",
-    "url": "https://furnacefixpros.com/"
+    "url": "https://furnacefixpros.us/"
   },
   "areaServed": {
     "@type": "Country",
@@ -64,7 +64,7 @@ const homeServiceSchema = {
         "@type": "Service",
         "name": s.name,
         "description": s.shortDescription,
-        "url": `https://furnacefixpros.com/services/${s.slug}/`
+        "url": `https://furnacefixpros.us/services/${s.slug}/`
       }
     }))
   }

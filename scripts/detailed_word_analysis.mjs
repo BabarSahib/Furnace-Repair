@@ -66,8 +66,8 @@ async function run() {
 
   // Edge Rendered City sample
   const edgeCities = [
-    { name: 'Arriba, CO', url: 'https://furnacefixpros.com/colorado/arriba/' },
-    { name: 'Abbott, TX', url: 'https://furnacefixpros.com/texas/abbott/' }
+    { name: 'Arriba, CO', url: 'https://furnacefixpros.us/colorado/arriba/' },
+    { name: 'Abbott, TX', url: 'https://furnacefixpros.us/texas/abbott/' }
   ];
 
   for (const ec of edgeCities) {

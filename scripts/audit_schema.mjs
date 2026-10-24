@@ -120,7 +120,7 @@ function checkSchemaObject(obj, page) {
       const val = obj[prop];
       if (val.startsWith('http://') || val.startsWith('https://')) {
         const u = new URL(val);
-        if (u.hostname === 'furnacefixpros.com') {
+        if (u.hostname === 'furnacefixpros.us') {
           // Verify protocol
           if (u.protocol !== 'https:') {
             urlFormatIssues.push({ page, field: prop, val, issue: 'Insecure http instead of https' });
@@ -168,7 +168,7 @@ if (ratingOrReviewIssues.length === 0) {
 
 console.log('\n--- 2. SCHEMA URL FORMAT & TRAILING SLASH CHECK ---');
 if (urlFormatIssues.length === 0) {
-  console.log('✓ PASS: All schema URLs consistently match https://furnacefixpros.com with strict trailing slashes.');
+  console.log('✓ PASS: All schema URLs consistently match https://furnacefixpros.us with strict trailing slashes.');
 } else {
   console.log(`✗ FAIL: Found ${urlFormatIssues.length} URL format issues:`);
   urlFormatIssues.slice(0, 15).forEach(i => console.log(`  [${i.page}] field "${i.field}": ${i.issue} in "${i.val}"`));

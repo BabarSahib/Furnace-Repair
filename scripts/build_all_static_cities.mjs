@@ -26,7 +26,7 @@ function slugify(text) {
 }
 
 function generateCityHtml(cityName, stateSlug, citySlug, state, county) {
-  const canonicalUrl = `https://furnacefixpros.com/${stateSlug}/${citySlug}/`;
+  const canonicalUrl = `https://furnacefixpros.us/${stateSlug}/${citySlug}/`;
   const stateName = state.name;
   const stateCode = state.code;
   const licensingBody = state.licensingBody || 'State Mechanical Licensing Board';
@@ -64,11 +64,11 @@ function generateCityHtml(cityName, stateSlug, citySlug, state, county) {
   {
     "@context": "https://schema.org",
     "@type": "HVACBusiness",
-    "@id": "https://furnacefixpros.com/#organization",
+    "@id": "https://furnacefixpros.us/#organization",
     "name": "FurnaceFix Pros",
-    "url": "https://furnacefixpros.com/",
+    "url": "https://furnacefixpros.us/",
     "telephone": "+18338030415",
-    "email": "service@furnacefixpros.com",
+    "email": "service@furnacefixpros.us",
     "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
@@ -90,11 +90,11 @@ function generateCityHtml(cityName, stateSlug, citySlug, state, county) {
     "name": "FurnaceFix Pros - ${cityName}",
     "url": "${canonicalUrl}",
     "telephone": "+18338030415",
-    "email": "service@furnacefixpros.com",
+    "email": "service@furnacefixpros.us",
     "priceRange": "$$",
-    "image": "https://furnacefixpros.com/images/furnace-repair-og.jpg",
+    "image": "https://furnacefixpros.us/images/furnace-repair-og.jpg",
     "parentOrganization": {
-      "@id": "https://furnacefixpros.com/#organization"
+      "@id": "https://furnacefixpros.us/#organization"
     },
     "address": {
       "@type": "PostalAddress",
@@ -159,8 +159,8 @@ function generateCityHtml(cityName, stateSlug, citySlug, state, county) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://furnacefixpros.com/" },
-      { "@type": "ListItem", "position": 2, "name": "${stateName}", "item": "https://furnacefixpros.com/${stateSlug}/" },
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://furnacefixpros.us/" },
+      { "@type": "ListItem", "position": 2, "name": "${stateName}", "item": "https://furnacefixpros.us/${stateSlug}/" },
       { "@type": "ListItem", "position": 3, "name": "${cityName}", "item": "${canonicalUrl}" }
     ]
   }
@@ -510,47 +510,43 @@ function generateCityHtml(cityName, stateSlug, citySlug, state, county) {
       </div>
     </section>
 
-    <!-- 6. Contact & Estimate Desk -->
+    <!-- 6. Direct Dispatch Desk -->
     <section class="section section-alt" id="contact-section">
       <div class="container">
         <div class="section-header">
           <div class="badge-pill">24/7 Dispatch Desk</div>
-          <h2>Schedule Furnace Repair in ${cityName}</h2>
-          <p>Call our hotline directly or submit your details below for prompt dispatch confirmation.</p>
+          <h2>Direct Heating Support in ${cityName}</h2>
+          <p>Need urgent furnace repair or heating diagnostics? Call our regional dispatch coordinator directly for immediate technician routing.</p>
         </div>
 
         <div style="max-width: 760px; margin: 0 auto; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 2.5rem; box-shadow: var(--shadow-md);">
           <div style="text-align: center; margin-bottom: 2rem;">
-            <div style="font-size: 1.15rem; color: var(--color-text-muted); margin-bottom: 0.5rem;">Immediate Emergency Dispatch:</div>
-            <a href="tel:+18338030415" style="font-size: 2rem; font-weight: 800; color: var(--color-accent); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+            <div style="font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 0.75rem;">Immediate Emergency Heating Hotline:</div>
+            <a href="tel:+18338030415" class="btn btn-call btn-lg" style="font-size: 1.85rem; font-weight: 800; padding: 1.1rem 2rem; width: 100%; justify-content: center; text-decoration: none; box-shadow: 0 4px 16px rgba(22, 163, 74, 0.3);">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               <span>(833) 803-0415</span>
             </a>
-            <div style="font-size: 0.9rem; color: var(--color-text-muted); margin-top: 0.35rem;">Open 24 Hours / 7 Days a Week • Serving ${cityName}, ${stateCode}</div>
+            <div style="font-size: 0.9rem; color: var(--color-text-muted); margin-top: 0.75rem;">Open 24 Hours / 7 Days a Week • Serving ${cityName}, ${stateCode} & Surrounding Communities</div>
           </div>
 
-          <form action="/contact-us/" method="GET" style="display: flex; flex-direction: column; gap: 1.25rem;">
-            <div>
-              <label style="display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.4rem; color: var(--color-primary);">Homeowner Name</label>
-              <input type="text" placeholder="Your full name" required class="form-control" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-size: 1rem;" />
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border);">
+            <div style="display: flex; align-items: center; gap: 0.65rem; font-size: 0.92rem; color: var(--color-text-muted);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              <span><strong>Average Arrival:</strong> 60 to 90 Minutes</span>
             </div>
-            <div>
-              <label style="display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.4rem; color: var(--color-primary);">Phone Number</label>
-              <input type="tel" placeholder="Best phone number for dispatch" required class="form-control" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-size: 1rem;" />
+            <div style="display: flex; align-items: center; gap: 0.65rem; font-size: 0.92rem; color: var(--color-text-muted);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              <span><strong>Upfront Pricing:</strong> Written Flat Estimates</span>
             </div>
-            <div>
-              <label style="display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.4rem; color: var(--color-primary);">Heating Service Needed</label>
-              <select class="form-control" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-size: 1rem;">
-                <option value="Emergency No-Heat">Emergency Loss of Heat (Immediate Dispatch)</option>
-                <option value="Furnace Diagnostic">Furnace Diagnostic & Repair</option>
-                <option value="Seasonal Maintenance">Seasonal Maintenance & Tune-Up</option>
-                <option value="System Replacement">New Furnace Installation / Replacement</option>
-              </select>
+            <div style="display: flex; align-items: center; gap: 0.65rem; font-size: 0.92rem; color: var(--color-text-muted);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              <span><strong>24/7 Availability:</strong> Zero Weekend Overtime</span>
             </div>
-            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; justify-content: center; margin-top: 0.5rem; font-size: 1.1rem; padding: 0.9rem 1.5rem;">
-              Request Immediate Service in ${cityName}
-            </button>
-          </form>
+            <div style="display: flex; align-items: center; gap: 0.65rem; font-size: 0.92rem; color: var(--color-text-muted);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              <span><strong>Certified:</strong> Licensed & Fully Insured</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>

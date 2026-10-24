@@ -28,7 +28,7 @@ function slugify(text) {
 
 export function generateSitemap() {
   console.log('Generating full XML sitemap for all pure static pages...');
-  const siteUrl = 'https://furnacefixpros.com';
+  const siteUrl = 'https://furnacefixpros.us';
   const today = new Date().toISOString().split('T')[0];
   const urls = [];
   const seen = new Set();

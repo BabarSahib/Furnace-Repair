@@ -31,17 +31,17 @@ const servicesFaqs = [
 const servicesHubSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "@id": "https://furnacefixpros.com/services/#service",
+  "@id": "https://furnacefixpros.us/services/#service",
   "name": "Professional Heating & Furnace Repair Services",
   "serviceType": "HVAC and Furnace Repair",
   "description": "Comprehensive residential furnace repair, emergency diagnostics, routine maintenance tune-ups, installations, and system replacements nationwide.",
-  "url": "https://furnacefixpros.com/services/",
+  "url": "https://furnacefixpros.us/services/",
   "provider": {
     "@type": "HVACBusiness",
-    "@id": "https://furnacefixpros.com/#organization",
+    "@id": "https://furnacefixpros.us/#organization",
     "name": "FurnaceFix Pros",
     "telephone": "+18338030415",
-    "url": "https://furnacefixpros.com/"
+    "url": "https://furnacefixpros.us/"
   },
   "areaServed": {
     "@type": "Country",
@@ -56,7 +56,7 @@ const servicesHubSchema = {
         "@type": "Service",
         "name": s.name,
         "description": s.shortDescription,
-        "url": `https://furnacefixpros.com/services/${s.slug}/`
+        "url": `https://furnacefixpros.us/services/${s.slug}/`
       }
     }))
   }

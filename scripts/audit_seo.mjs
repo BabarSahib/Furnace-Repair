@@ -91,7 +91,7 @@ htmlFiles.forEach(file => {
     canonicals.get(canonical).push(pagePath);
 
     // Exact self-referencing check
-    const expectedCanonical = `https://furnacefixpros.com${pagePath}`;
+    const expectedCanonical = `https://furnacefixpros.us${pagePath}`;
     if (canonical !== expectedCanonical) {
       pageIssues.push({
         page: pagePath,
@@ -107,7 +107,7 @@ htmlFiles.forEach(file => {
     if (canonical.includes('#')) {
       pageIssues.push({ page: pagePath, type: 'CANONICAL', issue: `Canonical contains hash: "${canonical}"` });
     }
-    if (!canonical.startsWith('https://furnacefixpros.com/')) {
+    if (!canonical.startsWith('https://furnacefixpros.us/')) {
       pageIssues.push({ page: pagePath, type: 'CANONICAL', issue: `Canonical has wrong origin/protocol: "${canonical}"` });
     }
     if (!canonical.endsWith('/')) {
@@ -207,12 +207,12 @@ internalLinks.forEach(({ source, rawHref }) => {
   let link = rawHref;
   let isInternal = false;
 
-  if (link.startsWith('https://furnacefixpros.com')) {
-    link = link.replace('https://furnacefixpros.com', '');
+  if (link.startsWith('https://furnacefixpros.us')) {
+    link = link.replace('https://furnacefixpros.us', '');
     isInternal = true;
-  } else if (link.startsWith('http://furnacefixpros.com')) {
+  } else if (link.startsWith('http://furnacefixpros.us')) {
     linkIssues.push({ source, rawHref, issue: 'Uses insecure http:// for internal link' });
-    link = link.replace('http://furnacefixpros.com', '');
+    link = link.replace('http://furnacefixpros.us', '');
     isInternal = true;
   } else if (link.startsWith('http://') || link.startsWith('https://')) {
     // External link
@@ -292,13 +292,13 @@ if (!fs.existsSync(sitemapPath)) {
     }
     seenSitemapLocs.add(loc);
 
-    if (!loc.startsWith('https://furnacefixpros.com/')) {
-      sitemapIssues.push(`URL does not start with https://furnacefixpros.com/: ${loc}`);
+    if (!loc.startsWith('https://furnacefixpros.us/')) {
+      sitemapIssues.push(`URL does not start with https://furnacefixpros.us/: ${loc}`);
     }
     if (!loc.endsWith('/')) {
       sitemapIssues.push(`URL missing trailing slash: ${loc}`);
     }
-    if (/[A-Z]/.test(loc.replace('https://furnacefixpros.com', ''))) {
+    if (/[A-Z]/.test(loc.replace('https://furnacefixpros.us', ''))) {
       sitemapIssues.push(`URL contains uppercase letters: ${loc}`);
     }
     if (loc.includes('?') || loc.includes('#')) {
@@ -306,7 +306,7 @@ if (!fs.existsSync(sitemapPath)) {
     }
 
     // Verify 200 status (exists in dist or edge worker)
-    const pagePath = loc.replace('https://furnacefixpros.com', '');
+    const pagePath = loc.replace('https://furnacefixpros.us', '');
     const distHtml = path.join(distDir, pagePath.replace(/^\//, ''), 'index.html');
     if (!fs.existsSync(distHtml)) {
       const parts = pagePath.replace(/^\/|\/$/g, '').split('/');
@@ -331,10 +331,10 @@ if (!fs.existsSync(robotsPath)) {
 } else {
   const robots = fs.readFileSync(robotsPath, 'utf8');
   console.log(robots.trim());
-  if (!robots.includes('Sitemap: https://furnacefixpros.com/sitemap.xml')) {
+  if (!robots.includes('Sitemap: https://furnacefixpros.us/sitemap.xml')) {
     console.log('FAIL: Sitemap directive missing or incorrect in robots.txt');
   } else {
-    console.log('✓ PASS: robots.txt properly references https://furnacefixpros.com/sitemap.xml and allows crawling.');
+    console.log('✓ PASS: robots.txt properly references https://furnacefixpros.us/sitemap.xml and allows crawling.');
   }
 }
 

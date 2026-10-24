@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://furnacefixpros.com/sitemap.xml
+Sitemap: https://furnacefixpros.us/sitemap.xml

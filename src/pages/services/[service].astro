@@ -44,17 +44,17 @@ const relatedServices = services.filter((s) => s.slug !== service.slug).slice(0,
 const specificServiceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "@id": `https://furnacefixpros.com/services/${service.slug}/#service`,
+  "@id": `https://furnacefixpros.us/services/${service.slug}/#service`,
   "name": service.name,
   "serviceType": "Heating and Furnace Repair",
   "description": service.shortDescription,
-  "url": `https://furnacefixpros.com/services/${service.slug}/`,
+  "url": `https://furnacefixpros.us/services/${service.slug}/`,
   "provider": {
     "@type": "HVACBusiness",
-    "@id": "https://furnacefixpros.com/#organization",
+    "@id": "https://furnacefixpros.us/#organization",
     "name": "FurnaceFix Pros",
     "telephone": "+18338030415",
-    "url": "https://furnacefixpros.com/"
+    "url": "https://furnacefixpros.us/"
   },
   "areaServed": {
     "@type": "Country",

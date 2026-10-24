@@ -126,7 +126,7 @@ async function runCrawl() {
 
   // Pre-seed queue with core templates, blog posts, services, states, and representative static city samples
   const sitemapXml = fs.readFileSync(path.join(DIST_DIR, 'sitemap.xml'), 'utf8');
-  const allSitemapUrls = [...sitemapXml.matchAll(/<loc>https:\/\/furnacefixpros.com(.*?)<\/loc>/g)].map(m => m[1]);
+  const allSitemapUrls = [...sitemapXml.matchAll(/<loc>https:\/\/furnacefixpros.us(.*?)<\/loc>/g)].map(m => m[1]);
 
   // Include all non-city pages (core, services, states, blog posts)
   const coreAndHubs = allSitemapUrls.filter(u => u.split('/').filter(Boolean).length <= 1 || u.startsWith('/services/') || u.startsWith('/blog/'));
@@ -195,7 +195,7 @@ async function runCrawl() {
       crawlIssues.push({ url: currentPath, issue: `Expected 1 canonical tag, found ${canonicalMatches.length}` });
     } else {
       const canonical = canonicalMatches[0][1].trim();
-      const expectedCanonical = `https://furnacefixpros.com${currentPath}`;
+      const expectedCanonical = `https://furnacefixpros.us${currentPath}`;
       if (canonical !== expectedCanonical) {
         crawlIssues.push({ url: currentPath, issue: `Canonical mismatch: found "${canonical}", expected "${expectedCanonical}"` });
       }

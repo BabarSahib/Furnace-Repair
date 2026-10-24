@@ -46,7 +46,7 @@ async function run() {
   const austinStats = analyzeText(austinText);
 
   // 3. Worker Edge Rendered City (e.g. Arriba, CO)
-  const arribaRes = await worker.fetch(new Request('https://furnacefixpros.com/colorado/arriba/'), {});
+  const arribaRes = await worker.fetch(new Request('https://furnacefixpros.us/colorado/arriba/'), {});
   const arribaHtml = await arribaRes.text();
   const arribaText = extractVisibleText(arribaHtml);
   const arribaStats = analyzeText(arribaText);
