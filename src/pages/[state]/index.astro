@@ -1,0 +1,285 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TrustStrip from '../../components/TrustStrip.astro';
+import FaqAccordion from '../../components/FaqAccordion.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import states from '../../data/states.json';
+import allCitiesByState from '../../data/all_30k_cities_by_state.json';
+import services from '../../data/services.json';
+
+export async function getStaticPaths() {
+  return states.map((state) => {
+    // Find all cities in this state from the 30k cities database
+    const stateCities = (allCitiesByState as Record<string, any[]>)[state.code] || [];
+    return {
+      params: { state: state.slug },
+      props: { state, stateCities }
+    };
+  });
+}
+
+const { state, stateCities } = Astro.props;
+
+// Generate 5 state-specific FAQs
+const stateFaqs = [
+  {
+    question: `How fast can a technician arrive for emergency furnace repair in ${state.name}?`,
+    answer: `For emergency no-heat situations across ${state.name}, our priority dispatch routes on-call technicians with an average arrival window of 60 to 90 minutes. For standard diagnostic checks and tune-ups, same-day and next-day scheduled appointments are available.`
+  },
+  {
+    question: `What are the most common heating problems caused by ${state.name}'s climate?`,
+    answer: `${state.climateOverview} Common service calls across ${state.name} involve ${state.commonFurnaceIssues.toLowerCase()}`
+  },
+  {
+    question: `Are your furnace technicians licensed and certified in ${state.name}?`,
+    answer: `Yes. All heating contractors in our ${state.name} network meet the regulatory standards of the ${state.licensingBody}, carry full liability and workers' compensation coverage, and use genuine factory-certified parts.`
+  },
+  {
+    question: `Do you service all furnace brands in ${state.name}?`,
+    answer: `Yes. Our technicians service all leading residential furnace manufacturers across ${state.name}, including Carrier, Trane, Lennox, Rheem, Goodman, York, Bryant, Ruud, and American Standard, covering natural gas, propane, and electric systems.`
+  },
+  {
+    question: `Do you provide upfront pricing before starting repairs in ${state.name}?`,
+    answer: `Every service call in ${state.name} begins with an in-depth physical diagnostic inspection. Once the problem is verified, your technician provides a flat-rate written estimate with zero hidden fees or overtime penalties.`
+  }
+];
+
+// Fallback if state has no specific city in the database
+const displayCities = stateCities && stateCities.length > 0 ? stateCities : [
+  { city: `${state.capital || state.name + ' Metro'}`, state: state.code, county: "Central" }
+];
+
+// Featured top 16 cities for primary cards
+const featuredCities = displayCities.slice(0, 16);
+
+// Helper to slugify city names
+const slugify = (text: string) => text.toLowerCase().replace(/[^\w\s-]/g, '').replace(/[\s_-]+/g, '-').replace(/^-+|-+$/g, '');
+
+const stateCanonicalUrl = `https://furnacefixpros.com/${state.slug}/`;
+const stateServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${stateCanonicalUrl}#service`,
+  "name": `Same Day Furnace Repair in ${state.name}`,
+  "serviceType": "Furnace Repair",
+  "description": `Emergency furnace repair, heating diagnostics, and 24/7 heating restoration across ${state.name}. Upfront pricing and licensed technicians.`,
+  "url": stateCanonicalUrl,
+  "provider": {
+    "@type": "HVACBusiness",
+    "@id": `${stateCanonicalUrl}#localbusiness`,
+    "name": `FurnaceFix Pros - ${state.name}`,
+    "telephone": "+18338030415",
+    "url": stateCanonicalUrl
+  },
+  "areaServed": {
+    "@type": "State",
+    "name": state.name
+  }
+};
+---
+
+<BaseLayout
+  title={`Same Day Furnace Repair in ${state.name} | FurnaceFix Pros`}
+  description={`Looking for trusted furnace repair in ${state.name}? FurnaceFix Pros provides same-day dispatch, 24/7 emergency heating restoration, and licensed technicians across ${state.name}.`}
+  canonicalPath={`/${state.slug}/`}
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: state.name, url: `/${state.slug}/` }
+  ]}
+  stateName={state.name}
+  serviceSchema={stateServiceSchema}
+>
+  <!-- Hero Section (Mobile Optimized) -->
+  <section class="hero-section" style="padding: 3.5rem 1rem;">
+    <div class="container hero-content">
+      <div class="badge-pill" style="background: rgba(234, 88, 12, 0.2); border-color: rgba(234, 88, 12, 0.4); color: #fdba74;">
+        <span>{state.name} Heating Services • 24/7 Dispatch</span>
+      </div>
+      <h1 class="hero-title">Same Day Furnace Repair in {state.name}</h1>
+      <p class="hero-desc">
+        When freezing temperatures strike {state.name}, you need rapid, reliable heating support. Our certified local technicians fix broken igniters, frozen drain lines, faulty limit switches, and failed blower motors with upfront flat pricing and zero overtime surcharges.
+      </p>
+      <div class="btn-group" style="flex-direction: column; width: 100%; max-width: 480px;">
+        <a href="tel:+18338030415" class="btn btn-call btn-lg" style="width: 100%; justify-content: center;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Call +1 (833) 803-0415</span>
+        </a>
+        <a href="#cities-section" class="btn btn-secondary btn-lg" style="width: 100%; justify-content: center;">Find Your City Below ↓</a>
+      </div>
+      <div style="margin-top: 1.5rem; font-size: 0.92rem; color: #cbd5e1;">
+        Officially recognized standards in line with the <a href={state.licensingUrl} target="_blank" rel="noopener" style="color: #fdba74; text-decoration: underline;">{state.licensingBody}</a>.
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Strip -->
+  <TrustStrip />
+
+  <!-- Cities We Serve in this State -->
+  <section class="section" id="cities-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-pill">Local Communities ({displayCities.length} Cities)</div>
+        <h2>Cities We Serve in {state.name}</h2>
+        <p>Browse major metropolitan centers or search any town across {state.name} to view local dispatch and direct service.</p>
+      </div>
+
+      <!-- Featured Cities Cards -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; margin-bottom: 3rem;">
+        {featuredCities.map((c) => {
+          const citySlug = slugify(c.city);
+          return (
+            <a href={`/${state.slug}/${citySlug}/`} class="card" style="padding: 1.35rem; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none;">
+              <div>
+                <div style="font-weight: 800; font-size: 1.15rem; color: var(--color-primary); margin-bottom: 0.25rem;">
+                  {c.city}
+                </div>
+                <div style="font-size: 0.85rem; color: var(--color-text-muted);">
+                  {c.county ? `${c.county} County` : `${state.name}`}
+                </div>
+              </div>
+              <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--color-border); font-size: 0.88rem; font-weight: 700; color: var(--color-accent); display: flex; justify-content: space-between; align-items: center;">
+                <span>Same-Day Repair</span>
+                <span>View City →</span>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+
+      <!-- Complete All-Cities Search & Directory for this State -->
+      {displayCities.length > 16 && (
+        <div style="background-color: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--shadow-sm); margin-top: 2rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;">
+            <div>
+              <h3 style="font-size: 1.25rem; color: var(--color-primary); margin-bottom: 0.25rem;">Complete {state.name} City Directory</h3>
+              <p style="font-size: 0.92rem; color: var(--color-text-muted); margin: 0;">Showing all {displayCities.length} registered service towns and communities.</p>
+            </div>
+            <!-- Mobile-Friendly Instant Filter Input -->
+            <div style="width: 100%; max-width: 320px;">
+              <input 
+                type="text" 
+                id="city-search-input" 
+                placeholder="Search your city..." 
+                class="form-control" 
+                style="padding: 0.65rem 1rem; font-size: 16px; border-radius: var(--radius-sm);"
+              />
+            </div>
+          </div>
+
+          <div id="all-cities-list" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.5rem; max-height: 480px; overflow-y: auto; padding-right: 0.5rem; border: 1px solid var(--color-border-subtle); border-radius: var(--radius-sm); padding: 1rem;">
+            {displayCities.map((c) => {
+              const citySlug = slugify(c.city);
+              return (
+                <a 
+                  href={`/${state.slug}/${citySlug}/`} 
+                  class="city-link-item"
+                  data-name={c.city.toLowerCase()}
+                  style="padding: 0.4rem 0.6rem; font-size: 0.92rem; font-weight: 500; color: var(--color-primary); border-radius: 4px; text-decoration: none; transition: background 0.15s;"
+                >
+                  {c.city}
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Services Grid in this State -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-pill">Statewide Capabilities</div>
+        <h2>Heating Services Available in {state.name}</h2>
+        <p>Our licensed heating contractors offer comprehensive residential services across all regions of {state.name}.</p>
+      </div>
+
+      <div class="grid-cards">
+        {services.map((s) => (
+          <div class="card">
+            <h3 class="card-title">
+              <a href={`/services/${s.slug}/`} style="color: var(--color-primary);">{s.name}</a>
+            </h3>
+            <p class="card-body">{s.shortDescription}</p>
+            <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--color-border);">
+              <a href={`/services/${s.slug}/`} style="color: var(--color-accent); font-weight: 700; font-size: 0.92rem;">
+                Explore {s.name} in {state.name} →
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us with Local Flavor -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-pill">Local Climate Expertise</div>
+        <h2>Why {state.name} Homeowners Choose FurnaceFix Pros</h2>
+        <p>{state.climateOverview}</p>
+      </div>
+
+      <div class="grid-cards">
+        <div class="card">
+          <h3 class="card-title">Experienced With {state.name} Weather</h3>
+          <p>We know how rapidly winter cold can sweep across {state.name}. Our technicians are prepared for sudden thermal stress spikes that trigger ignition lockouts.</p>
+        </div>
+        <div class="card">
+          <h3 class="card-title">State Licensing Compliance</h3>
+          <p>We operate in strict adherence to guidelines set by the <a href={state.licensingUrl} target="_blank" rel="noopener" style="color:var(--color-accent); text-decoration:underline;">{state.licensingBody}</a>, guaranteeing code-compliant gas connections and venting.</p>
+        </div>
+        <div class="card">
+          <h3 class="card-title">Equipped For Common Issues</h3>
+          <p>Our service vehicles carry specialized replacement parts for {state.commonFurnaceIssues.toLowerCase()}, allowing over 90% of repairs to finish on the first visit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- State FAQs -->
+  <FaqAccordion 
+    faqs={stateFaqs} 
+    title={`Furnace Repair in ${state.name} — FAQs`}
+    subtitle={`Common homeowner questions about emergency response times, heating costs, and contractor licensing in ${state.name}.`}
+  />
+
+  <!-- CTA Band -->
+  <section class="section" style="padding-top: 2rem; padding-bottom: 2rem;">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Need Immediate Heat In {state.name}?</h2>
+        <p>Our emergency heating dispatch desk is open 24/7 across {state.name}. Speak directly with an on-call technician now.</p>
+        <div class="btn-group" style="justify-content: center; flex-direction: column; max-width: 440px; margin: 0 auto;">
+          <a href="tel:+18338030415" class="btn btn-call btn-lg" style="width: 100%; justify-content: center;">Call +1 (833) 803-0415</a>
+          <a href="#contact-section" class="btn btn-secondary btn-lg" style="width: 100%; justify-content: center;">Request Service Online</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form & Map -->
+  <ContactForm state={state.name} />
+</BaseLayout>
+
+<script>
+  const searchInput = document.getElementById('city-search-input');
+  const cityItems = document.querySelectorAll('.city-link-item');
+
+  if (searchInput && cityItems.length > 0) {
+    searchInput.addEventListener('input', (e) => {
+      const query = (e.target as HTMLInputElement).value.toLowerCase().trim();
+      cityItems.forEach((item) => {
+        const cityName = item.getAttribute('data-name') || '';
+        if (cityName.includes(query)) {
+          (item as HTMLElement).style.display = 'block';
+        } else {
+          (item as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  }
+</script>

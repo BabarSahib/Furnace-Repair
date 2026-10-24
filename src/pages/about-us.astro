@@ -1,0 +1,163 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
+import ContactForm from '../components/ContactForm.astro';
+
+const aboutFaqs = [
+  {
+    question: "What makes FurnaceFix Pros different from other HVAC companies?",
+    answer: "FurnaceFix Pros specializes exclusively in residential heating and furnace diagnostics. We provide transparent, upfront flat-rate pricing with zero overtime surcharges, vetted licensed technicians, and genuine OEM replacement parts backed by written 1-year labor warranties."
+  },
+  {
+    question: "How long has FurnaceFix Pros been serving homeowners nationwide?",
+    answer: "With over 15 years of trade experience, our network has expanded from local roots to connect homeowners across all 50 states with certified, background-checked heating technicians."
+  },
+  {
+    question: "Are your furnace technicians licensed and insured?",
+    answer: "Yes. Every technician in the FurnaceFix Pros dispatch network is licensed under state mechanical contractor boards, carries active general liability insurance, and undergoes continuous trade education on modern gas and electric heating systems."
+  },
+  {
+    question: "Do you offer emergency heating repairs after hours and on holidays?",
+    answer: "Yes. We maintain active 24/7/365 emergency on-call dispatch. When winter temperatures drop and your heat shuts off unexpectedly, our technicians are routed immediately with typical arrival windows of 60 to 90 minutes."
+  }
+];
+---
+
+<BaseLayout
+  title="About FurnaceFix Pros | Certified Heating & Furnace Repair Specialists"
+  description="Learn about FurnaceFix Pros: over 15 years of certified heating repair experience, upfront flat-rate pricing, and 24/7 emergency dispatch nationwide."
+  canonicalPath="/about-us/"
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "About Us", url: "/about-us/" }
+  ]}
+>
+  <!-- Hero Banner -->
+  <section class="hero-section" style="padding: 3.5rem 0;">
+    <div class="container hero-content">
+      <div class="badge-pill" style="background: rgba(234, 88, 12, 0.2); border-color: rgba(234, 88, 12, 0.4); color: #fdba74;">
+        <span>About Our Company</span>
+      </div>
+      <h1 class="hero-title">Dedicated To Keeping Families Warm & Safe</h1>
+      <p class="hero-desc">
+        Founded on the simple principle that emergency heating repairs should be fast, honest, and free from high-pressure sales tactics. Meet the certified team behind FurnaceFix Pros.
+      </p>
+      <div class="btn-group">
+        <a href="tel:+18338030415" class="btn btn-call btn-lg">Call +1 (833) 803-0415</a>
+        <a href="#our-story" class="btn btn-secondary btn-lg">Read Our Story ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Strip -->
+  <TrustStrip />
+
+  <!-- Our Story -->
+  <section class="section" id="our-story">
+    <div class="container">
+      <div style="max-width: 860px; margin: 0 auto;">
+        <div class="badge-pill">Founding Story</div>
+        <h2>Over 15 Years of Heating Trade Excellence</h2>
+        <p>
+          FurnaceFix Pros began with a single service van and a clear mission: eliminate the confusion and inflated overtime costs homeowners face during winter heating breakdowns. Over the past 15 years, our network has expanded to connect homeowners in all 50 states with vetted, background-checked heating technicians who take pride in craftsmanship.
+        </p>
+        <p>
+          Unlike generalist handymen who attempt heating repairs without specialized tools, our contractors specialize exclusively in residential forced-air heating systems. We invest continuously in trade tooling—including digital dual-port manometers, electronic combustion analyzers, and optical borescopes—to ensure every diagnostic check finds the genuine root cause on the first visit.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Owner & Leadership Bio -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-pill">Technical Leadership</div>
+        <h2>Trade Leadership & Experienced Management</h2>
+        <p>Guided by licensed master mechanical contractors who have spent decades in the field.</p>
+      </div>
+
+      <div style="max-width: 800px; margin: 0 auto; background-color: #ffffff; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 2.5rem; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 1.5rem;">
+        <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+          <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #0f172a, #1e293b); color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 800; border: 3px solid var(--color-accent);">
+            FP
+          </div>
+          <div>
+            <div style="font-size: 1.4rem; font-weight: 800; color: var(--color-primary);">Operations & Field Leadership Team</div>
+            <div style="font-size: 0.95rem; color: var(--color-accent); font-weight: 700;">Certified Master HVAC Mechanical Coordinators</div>
+          </div>
+        </div>
+        <p style="font-size: 1.05rem; line-height: 1.7; color: var(--color-text-muted); margin: 0;">
+          Our dispatch leadership oversees regional compliance, technician continuing education, and customer satisfaction protocols. With direct background in residential combustion safety, high-efficiency secondary heat exchanger diagnostics, and airflow engineering, our leadership ensures that every technician dispatched to your home upholds the highest standards in safety and mechanical excellence.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Values -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-pill">Core Principles</div>
+        <h2>Our Mission & Service Standards</h2>
+        <p>Four pillars that define every customer interaction and heating repair call.</p>
+      </div>
+
+      <div class="grid-cards">
+        <div class="card">
+          <h3 class="card-title">1. Absolute Transparency</h3>
+          <p>We provide firm upfront flat-rate pricing before beginning work. No hidden travel surcharges, hourly surprises, or vague diagnostic estimates.</p>
+        </div>
+        <div class="card">
+          <h3 class="card-title">2. True Root-Cause Diagnosis</h3>
+          <p>We never perform superficial temporary patches. Our technicians test electrical circuits, gas pressures, and safety limit switches to fix the real failure permanently.</p>
+        </div>
+        <div class="card">
+          <h3 class="card-title">3. Safety First Protocols</h3>
+          <p>Every furnace inspection includes carbon monoxide testing and optical heat exchanger checks to protect your home and loved ones from toxic combustion gas leaks.</p>
+        </div>
+        <div class="card">
+          <h3 class="card-title">4. Genuine OEM Components</h3>
+          <p>We install factory-certified replacement parts backed by a minimum 1-year manufacturer warranty and our comprehensive 1-year labor satisfaction guarantee.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Where We Work -->
+  <section class="section section-alt">
+    <div class="container" style="text-align: center; max-width: 800px;">
+      <div class="badge-pill">Service Area</div>
+      <h2>Serving Communities Across the Country</h2>
+      <p style="margin-bottom: 2rem;">
+        From major metro markets to suburban and rural towns, our localized dispatch system connects you with on-call technicians across all 50 states.
+      </p>
+      <a href="/locations/" class="btn btn-primary btn-lg">Browse Our 50-State Coverage Directory →</a>
+    </div>
+  </section>
+
+  <!-- About Company FAQs -->
+  <FaqAccordion 
+    faqs={aboutFaqs}
+    title="Frequently Asked Questions About FurnaceFix Pros"
+    subtitle="Learn more about our standards, technician credentials, upfront pricing policies, and dispatch response times."
+  />
+
+  <!-- CTA Band -->
+  <section class="section" style="padding-top: 2rem; padding-bottom: 2rem;">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Experience Honest, Professional Heating Service</h2>
+        <p>Call our 24/7 dispatch desk or book online for immediate same-day technician scheduling.</p>
+        <div class="btn-group" style="justify-content: center;">
+          <a href="tel:+18338030415" class="btn btn-call btn-lg">Call +1 (833) 803-0415</a>
+          <a href="/contact-us/" class="btn btn-secondary btn-lg">Contact Us Online</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <ContactForm />
+</BaseLayout>

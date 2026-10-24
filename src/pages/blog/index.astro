@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TrustStrip from '../../components/TrustStrip.astro';
+import blogPosts from '../../data/blogPosts.json';
+
+const categories = ["All", "Troubleshooting", "Diagnostics", "Safety & Inspections", "DIY Maintenance", "Buying Guides", "Energy Efficiency", "Pricing & Costs"];
+---
+
+<BaseLayout
+  title="Furnace & Heating Guides, Troubleshooting & Safety | FurnaceFix Pros"
+  description="Expert heating guides, step-by-step furnace troubleshooting, component diagnostic checklists, and safety protocols written by licensed HVAC technicians."
+  canonicalPath="/blog/"
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "Blog", url: "/blog/" }
+  ]}
+>
+  <!-- Hero Banner -->
+  <section class="hero-section" style="padding: 3.5rem 0;">
+    <div class="container hero-content">
+      <div class="badge-pill" style="background: rgba(234, 88, 12, 0.2); border-color: rgba(234, 88, 12, 0.4); color: #fdba74;">
+        <span>HVAC Trade Knowledge Base</span>
+      </div>
+      <h1 class="hero-title">Furnace & Heating Technical Guides</h1>
+      <p class="hero-desc">
+        Explore in-depth troubleshooting articles, safety checklists, repair cost guides, and maintenance tutorials written by experienced field heating technicians.
+      </p>
+      <div class="btn-group">
+        <a href="tel:+18338030415" class="btn btn-call btn-lg">Call For Immediate Repair</a>
+        <a href="#articles-grid" class="btn btn-secondary btn-lg">Browse 20+ Guides Below ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Strip -->
+  <TrustStrip />
+
+  <!-- Blog Posts Grid with Categories -->
+  <section class="section" id="articles-grid">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-pill">Technical Articles</div>
+        <h2>Latest Heating & Furnace Diagnostic Articles</h2>
+        <p>Clear, practical advice to help homeowners understand heating breakdowns, perform safe inspections, and know when to call a professional.</p>
+      </div>
+
+      <!-- Category Filter Buttons -->
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-bottom: 2.5rem;">
+        {categories.map((cat, idx) => (
+          <button 
+            type="button" 
+            class={`category-filter-btn ${idx === 0 ? 'active' : ''}`}
+            data-category={cat}
+            style="padding: 0.45rem 1rem; border-radius: var(--radius-full); border: 1px solid var(--color-border); background: var(--color-surface); font-size: 0.88rem; font-weight: 600; cursor: pointer; color: var(--color-text-main);"
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      <!-- Articles Grid -->
+      <div class="grid-cards" id="posts-container">
+        {blogPosts.map((post) => (
+          <article class="card blog-post-card" data-category={post.category}>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; font-size: 0.82rem;">
+              <span style="font-weight: 700; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.05em;">{post.category}</span>
+              <span style="color: var(--color-text-light);">{post.readTime}</span>
+            </div>
+            <h3 class="card-title" style="font-size: 1.2rem; line-height: 1.4; margin-bottom: 0.75rem;">
+              <a href={`/blog/${post.slug}/`} style="color: var(--color-primary);">{post.title}</a>
+            </h3>
+            <p class="card-body" style="font-size: 0.95rem; color: var(--color-text-muted); line-height: 1.6;">
+              {post.excerpt}
+            </p>
+            <div style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem;">
+              <span style="color: var(--color-text-light); font-weight: 500;">{post.date}</span>
+              <a href={`/blog/${post.slug}/`} style="font-weight: 700; color: var(--color-primary); display: inline-flex; align-items: center; gap: 0.25rem;">
+                Read Article →
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Band -->
+  <section class="section section-alt" style="padding-top: 2rem; padding-bottom: 2rem;">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Rather Have A Professional Handle It?</h2>
+        <p>Our on-call technicians carry all necessary diagnostic tools and replacement parts to fix your heating system today.</p>
+        <div class="btn-group" style="justify-content: center;">
+          <a href="tel:+18338030415" class="btn btn-call btn-lg">Call +1 (833) 803-0415</a>
+          <a href="/contact-us/" class="btn btn-secondary btn-lg">Schedule An Inspection</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .category-filter-btn.active {
+    background-color: var(--color-accent) !important;
+    color: #ffffff !important;
+    border-color: var(--color-accent) !important;
+  }
+</style>
+
+<script>
+  const buttons = document.querySelectorAll('.category-filter-btn');
+  const cards = document.querySelectorAll('.blog-post-card');
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.getAttribute('data-category');
+
+      cards.forEach((card) => {
+        if (cat === 'All' || card.getAttribute('data-category') === cat) {
+          (card as HTMLElement).style.display = 'flex';
+        } else {
+          (card as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

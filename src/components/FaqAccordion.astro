@@ -1,0 +1,83 @@
+---
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  faqs: FaqItem[];
+  title?: string;
+  subtitle?: string;
+}
+
+const { 
+  faqs, 
+  title = "Frequently Asked Questions", 
+  subtitle = "Clear answers about furnace repairs, diagnostic procedures, turnaround times, and pricing transparency." 
+} = Astro.props;
+
+// Prepare FAQ schema
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.answer
+    }
+  }))
+};
+---
+
+<section class="section section-alt" id="faq-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="badge-pill">Help & Answers</div>
+      <h2>{title}</h2>
+      <p>{subtitle}</p>
+    </div>
+
+    <div class="faq-list">
+      {faqs.map((faq, index) => (
+        <div class="faq-item" id={`faq-item-${index}`}>
+          <button type="button" class="faq-question" aria-expanded="false" aria-controls={`faq-answer-${index}`}>
+            <span>{faq.question}</span>
+            <span class="faq-arrow">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer" id={`faq-answer-${index}`} role="region">
+            <p style="margin-top: 1rem; margin-bottom: 0;">{faq.answer}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Inject structured data for Google FAQ Rich Results -->
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<script>
+  document.querySelectorAll('.faq-question').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const parent = btn.closest('.faq-item');
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      
+      // Close all other faqs in the same accordion
+      document.querySelectorAll('.faq-item').forEach((item) => {
+        if (item !== parent) {
+          item.classList.remove('active');
+          const qBtn = item.querySelector('.faq-question');
+          if (qBtn) qBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Toggle clicked
+      parent?.classList.toggle('active');
+      btn.setAttribute('aria-expanded', (!isExpanded).toString());
+    });
+  });
+</script>

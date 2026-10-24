@@ -1,0 +1,273 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TrustStrip from '../../components/TrustStrip.astro';
+import FaqAccordion from '../../components/FaqAccordion.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import services from '../../data/services.json';
+
+export async function getStaticPaths() {
+  return services.map((service) => ({
+    params: { service: service.slug },
+    props: { service }
+  }));
+}
+
+const { service } = Astro.props;
+
+// Specific FAQs for each service
+const serviceSpecificFaqs = [
+  {
+    question: `How quickly can I get ${service.name.toLowerCase()} at my home?`,
+    answer: `For emergency breakdowns and loss of heat, we provide same-day dispatch with average technician arrival between 60 to 90 minutes. For scheduled maintenance or non-urgent diagnostics, you can select convenient same-day or next-day arrival windows.`
+  },
+  {
+    question: `What causes the need for ${service.name.toLowerCase()} in most residential homes?`,
+    answer: `Most heating issues stem from neglected seasonal air filter changes causing internal heat buildup, electrical wear on hot surface igniters, oxidation on sensitive flame sensors, or mechanical bearing fatigue in draft inducer blowers.`
+  },
+  {
+    question: `Do you provide upfront pricing before performing ${service.name.toLowerCase()}?`,
+    answer: `Yes. Every service visit begins with a comprehensive physical and electrical diagnostic inspection. Your technician provides a firm, flat-rate written quote detailing exact parts and labor before any work commences.`
+  },
+  {
+    question: `What warranty is provided with your ${service.name.toLowerCase()}?`,
+    answer: `All replacement parts are genuine OEM components backed by a minimum 1-year manufacturer warranty, accompanied by our FurnaceFix Pros 1-year labor guarantee on every repair.`
+  },
+  {
+    question: `Is this service available in all states and cities?`,
+    answer: `Yes. FurnaceFix Pros coordinates heating services across all 50 states through our network of licensed, insured local heating contractors. You can view our full regional directory on our locations hub.`
+  }
+];
+
+const relatedServices = services.filter((s) => s.slug !== service.slug).slice(0, 3);
+
+// Service Schema (No Reviews or Ratings)
+const specificServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `https://furnacefixpros.com/services/${service.slug}/#service`,
+  "name": service.name,
+  "serviceType": "Heating and Furnace Repair",
+  "description": service.shortDescription,
+  "url": `https://furnacefixpros.com/services/${service.slug}/`,
+  "provider": {
+    "@type": "HVACBusiness",
+    "@id": "https://furnacefixpros.com/#organization",
+    "name": "FurnaceFix Pros",
+    "telephone": "+18338030415",
+    "url": "https://furnacefixpros.com/"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": `${service.name} Scope`,
+    "itemListElement": service.scope.map((item: string) => ({
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": item
+      }
+    }))
+  }
+};
+---
+
+<BaseLayout
+  title={`${service.name} | Same Day Heating Solutions | FurnaceFix Pros`}
+  description={`Need reliable ${service.name.toLowerCase()}? FurnaceFix Pros provides same-day dispatch, transparent flat-rate pricing, and licensed technicians nationwide.`}
+  canonicalPath={`/services/${service.slug}/`}
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "Services", url: "/services/" },
+    { name: service.name, url: `/services/${service.slug}/` }
+  ]}
+  serviceSchema={specificServiceSchema}
+>
+  <!-- Hero Section -->
+  <section class="hero-section" style="padding: 3.5rem 0;">
+    <div class="container hero-content">
+      <div class="badge-pill" style="background: rgba(234, 88, 12, 0.2); border-color: rgba(234, 88, 12, 0.4); color: #fdba74;">
+        <span>Nationwide Service • 24/7 Dispatch</span>
+      </div>
+      <h1 class="hero-title">{service.name}</h1>
+      <p class="hero-desc">
+        {service.tagline}. Our licensed heating specialists diagnose root-cause furnace failures, replace worn components with OEM parts, and restore reliable warmth with same-day priority dispatch.
+      </p>
+      <div class="btn-group">
+        <a href="tel:+18338030415" class="btn btn-call btn-lg">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Call +1 (833) 803-0415</span>
+        </a>
+        <a href="#contact-section" class="btn btn-secondary btn-lg">Schedule This Service</a>
+      </div>
+      <div style="margin-top: 1.5rem; font-size: 0.92rem; color: #cbd5e1;">
+        Available in all target cities and states. <a href="/locations/" style="color: #fdba74; text-decoration: underline;">View regional service coverage →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Strip -->
+  <TrustStrip />
+
+  <!-- Service Scope & Special Offer -->
+  <section class="section">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr; gap: 3rem;" class="contact-grid">
+        <div>
+          <div class="badge-pill">Service Scope</div>
+          <h2>What Our {service.name} Covers</h2>
+          <p>
+            When our technician arrives at your home, we do not make hasty guesses. We perform a standardized diagnostic procedure that inspects every electrical, mechanical, and safety facet of your heating equipment.
+          </p>
+
+          <div style="background-color: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.75rem; box-shadow: var(--shadow-sm); margin-bottom: 2rem;">
+            <h3 style="font-size: 1.15rem; margin-bottom: 1rem;">Complete Scope of Work:</h3>
+            <ul style="list-style: none; margin: 0; padding: 0;">
+              {service.scope.map((item) => (
+                <li style="display: flex; align-items: flex-start; gap: 0.65rem; margin-bottom: 0.75rem;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2.5" style="flex-shrink:0; margin-top:0.2rem;"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span style="font-weight: 500; color: var(--color-text-main);">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Special Seasonal Promotion Banner -->
+          <div style="background-color: var(--color-accent-light); border: 2px dashed var(--color-accent); border-radius: var(--radius-md); padding: 1.25rem 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <div style="font-weight: 800; color: var(--color-accent); font-size: 1.1rem;">Seasonal Heating Special</div>
+              <div style="font-size: 0.92rem; color: var(--color-text-main);">$35 Off Any Completed Repair When You Mention Code: <strong style="color:var(--color-accent);">WARMTH2026</strong></div>
+            </div>
+            <a href="tel:+18338030415" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Claim Discount</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="badge-pill">Common Indicators</div>
+          <h2>Signs You Need Immediate Service</h2>
+          <p>
+            Operating a malfunctioning furnace can lead to total system lockouts during extreme cold or dangerous carbon monoxide exposure. Look out for these critical warning triggers:
+          </p>
+
+          <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem;">
+            {service.commonProblems.map((prob, idx) => (
+              <div style="background-color: #ffffff; border: 1px solid var(--color-border); border-left: 4px solid var(--color-accent); border-radius: var(--radius-sm); padding: 1rem 1.25rem; box-shadow: var(--shadow-sm);">
+                <div style="font-weight: 700; color: var(--color-primary); margin-bottom: 0.2rem;">Symptom #{idx + 1}</div>
+                <div style="color: var(--color-text-muted); font-size: 0.95rem;">{prob}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Educational & Execution Process -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-pill">Step-by-Step Execution</div>
+        <h2>How Technicians Execute {service.name}</h2>
+        <p>A look at the professional methodology, safety controls, and specialized equipment deployed during your service appointment.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-bottom: 3.5rem;">
+        <div class="card">
+          <div style="font-weight: 800; font-size: 1.25rem; color: var(--color-accent); margin-bottom: 0.5rem;">Phase 1: Verification</div>
+          <h3 class="card-title">Circuit & Gas Testing</h3>
+          <p>Technicians verify incoming 120V line voltage, 24V thermostat signals, and measure natural gas pressure at the manifold using digital manometers.</p>
+        </div>
+        <div class="card">
+          <div style="font-weight: 800; font-size: 1.25rem; color: var(--color-accent); margin-bottom: 0.5rem;">Phase 2: Isolation</div>
+          <h3 class="card-title">Fault Isolation</h3>
+          <p>Using digital multimeters, technicians test flame sensor microamps, check hot surface igniter resistance, and confirm limit switch continuity.</p>
+        </div>
+        <div class="card">
+          <div style="font-weight: 800; font-size: 1.25rem; color: var(--color-accent); margin-bottom: 0.5rem;">Phase 3: Replacement</div>
+          <h3 class="card-title">OEM Component Swap</h3>
+          <p>Defective parts are replaced with factory-certified components, ensuring correct electrical ratings, proper mounting, and clean wiring harnesses.</p>
+        </div>
+        <div class="card">
+          <div style="font-weight: 800; font-size: 1.25rem; color: var(--color-accent); margin-bottom: 0.5rem;">Phase 4: Commissioning</div>
+          <h3 class="card-title">Full Cycle Testing</h3>
+          <p>We cycle the furnace through complete ignition sequences, measure supply and return temperature rise, and verify zero carbon monoxide emissions.</p>
+        </div>
+      </div>
+
+      <!-- Tools Used -->
+      <div style="background-color: #ffffff; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--shadow-sm);">
+        <h3 style="margin-bottom: 0.5rem;">Professional Diagnostic Tools We Use</h3>
+        <p style="margin-bottom: 1.5rem;">Our technicians carry precision trade equipment to eliminate guesswork:</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem;">
+          <div>
+            <div style="font-weight: 700; color: var(--color-primary);">Dual-Port Digital Manometers</div>
+            <div style="font-size: 0.88rem; color: var(--color-text-muted);">Accurately measures gas manifold pressure to 0.01 inches of water column.</div>
+          </div>
+          <div>
+            <div style="font-weight: 700; color: var(--color-primary);">Microamp Multimeters</div>
+            <div style="font-size: 0.88rem; color: var(--color-text-muted);">Measures the microscopic flame rectification current from the flame sensor.</div>
+          </div>
+          <div>
+            <div style="font-weight: 700; color: var(--color-primary);">Electronic Combustion Analyzers</div>
+            <div style="font-size: 0.88rem; color: var(--color-text-muted);">Analyzes flue gas composition to ensure safe, smoke-free combustion.</div>
+          </div>
+          <div>
+            <div style="font-weight: 700; color: var(--color-primary);">Optical Borescopes</div>
+            <div style="font-size: 0.88rem; color: var(--color-text-muted);">High-resolution cameras inspect heat exchanger cells for microscopic hairline cracks.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services Links -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-pill">Related Heating Options</div>
+        <h2>Other Services You May Require</h2>
+        <p>Explore complementary heating repairs and preventive tune-up packages.</p>
+      </div>
+
+      <div class="grid-cards">
+        {relatedServices.map((rel) => (
+          <div class="card">
+            <h3 class="card-title"><a href={`/services/${rel.slug}/`} style="color:var(--color-primary);">{rel.name}</a></h3>
+            <p class="card-body">{rel.shortDescription}</p>
+            <div style="margin-top: 1rem;">
+              <a href={`/services/${rel.slug}/`} style="color: var(--color-accent); font-weight: 700; font-size: 0.92rem;">
+                Learn About {rel.name} →
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <FaqAccordion
+    faqs={serviceSpecificFaqs}
+    title={`${service.name} FAQs`}
+    subtitle="Common questions regarding diagnostic procedures, pricing, parts warranties, and service response times."
+  />
+
+  <!-- CTA Band -->
+  <section class="section" style="padding-top: 2rem; padding-bottom: 2rem;">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Restore Reliable Warmth To Your Home Today</h2>
+        <p>Schedule your {service.name.toLowerCase()} or speak directly with our 24/7 emergency dispatch coordinator.</p>
+        <div class="btn-group" style="justify-content: center;">
+          <a href="tel:+18338030415" class="btn btn-call btn-lg">Call +1 (833) 803-0415</a>
+          <a href="#contact-section" class="btn btn-secondary btn-lg">Book Service Online</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form & Map -->
+  <ContactForm />
+</BaseLayout>

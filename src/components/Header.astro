@@ -1,0 +1,106 @@
+---
+import services from '../data/services.json';
+import states from '../data/states.json';
+
+const topStates = states.slice(0, 8);
+---
+
+<header class="site-header">
+  <div class="container nav-container">
+    <a href="/" class="logo-wrapper" aria-label="FurnaceFix Pros Home">
+      <div class="logo-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 6 9 6 13a6 6 0 0 0 12 0c0-4-2-7-6-11zm0 15a3 3 0 0 1-3-3c0-1.8 1.5-3.5 3-5 1.5 1.5 3 3.2 3 5a3 3 0 0 1-3 3z"/></svg>
+      </div>
+      <span>FurnaceFix<span style="color: var(--color-accent);">Pros</span></span>
+    </a>
+
+    <nav aria-label="Main Navigation">
+      <ul class="nav-menu">
+        <li><a href="/" class="nav-link">Home</a></li>
+
+        <li class="nav-dropdown">
+          <a href="/services/" class="nav-link" style="display: inline-flex; align-items: center; gap: 0.3rem;">
+            Services
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/services/" class="dropdown-item" style="font-weight: 700; border-bottom: 1px solid var(--color-border); margin-bottom: 0.3rem;">All Services Hub →</a></li>
+            {services.map((s) => (
+              <li><a href={`/services/${s.slug}/`} class="dropdown-item">{s.name}</a></li>
+            ))}
+          </ul>
+        </li>
+
+        <li class="nav-dropdown">
+          <a href="/locations/" class="nav-link" style="display: inline-flex; align-items: center; gap: 0.3rem;">
+            Service Areas
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/locations/" class="dropdown-item" style="font-weight: 700; border-bottom: 1px solid var(--color-border); margin-bottom: 0.3rem;">All US Locations Directory →</a></li>
+            {topStates.map((st) => (
+              <li><a href={`/${st.slug}/`} class="dropdown-item">{st.name} Furnace Repair</a></li>
+            ))}
+          </ul>
+        </li>
+
+        <li><a href="/about-us/" class="nav-link">About Us</a></li>
+        <li><a href="/blog/" class="nav-link">Guides & Blog</a></li>
+        <li><a href="/contact-us/" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div style="display: flex; align-items: center; gap: 0.85rem;">
+      <a href="tel:+18338030415" class="btn btn-call" id="header-phone-cta">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>(833) 803-0415</span>
+      </a>
+
+      <a href="tel:+18338030415" class="btn btn-primary" style="padding: 0.65rem 1.25rem;">Estimate</a>
+
+      <button class="hamburger-btn" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-nav-panel" id="mobile-nav-panel">
+    <ul class="mobile-nav-list">
+      <li><a href="/" class="nav-link">Home</a></li>
+      <li><a href="/services/" class="nav-link">All Services</a></li>
+      {services.map((s) => (
+        <li style="padding-left: 1rem;"><a href={`/services/${s.slug}/`} style="font-size: 0.95rem; color: var(--color-text-muted);">{s.name}</a></li>
+      ))}
+      <li><a href="/locations/" class="nav-link">Locations Hub (50 States)</a></li>
+      <li><a href="/about-us/" class="nav-link">About Us</a></li>
+      <li><a href="/blog/" class="nav-link">Furnace Guides & Blog</a></li>
+      <li><a href="/contact-us/" class="nav-link">Contact Us</a></li>
+      <li style="padding-top: 0.5rem;">
+        <a href="tel:+18338030415" class="btn btn-call" style="width: 100%;">
+          Call Now: +1 (833) 803-0415
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<style>
+  #header-phone-cta {
+    display: none;
+  }
+  @media (min-width: 768px) {
+    #header-phone-cta {
+      display: inline-flex !important;
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const panel = document.getElementById('mobile-nav-panel');
+  if (toggle && panel) {
+    toggle.addEventListener('click', () => {
+      panel.classList.toggle('open');
+    });
+  }
+</script>

@@ -1,0 +1,452 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
+import ContactForm from '../components/ContactForm.astro';
+import services from '../data/services.json';
+import states from '../data/states.json';
+
+const homeFaqs = [
+  {
+    question: "How quickly can a furnace repair technician arrive at my home?",
+    answer: "For emergency heating failures, we dispatch on-call technicians immediately with average arrival windows between 60 to 90 minutes. For standard diagnostic appointments and seasonal tune-ups, we offer flexible same-day and next-day scheduled arrival slots."
+  },
+  {
+    question: "What are the most common signs my furnace needs immediate repair?",
+    answer: "Key warning signs include blowing cold or lukewarm air while the thermostat calls for heat, rapid on-and-off cycling (short cycling), loud squealing or metallic banging noises upon ignition, a persistent yellow pilot light instead of a crisp blue flame, and unusual burning electrical odors."
+  },
+  {
+    question: "Do you provide upfront pricing before beginning any furnace repair work?",
+    answer: "Yes. Every service call starts with a thorough physical diagnostic inspection. Once the root cause is identified, your technician presents a clear, flat-rate quote in writing detailing required parts and labor. We never begin repair work or charge hidden fees without your direct approval."
+  },
+  {
+    question: "Are your furnace repair technicians licensed, background-checked, and insured?",
+    answer: "Every technician dispatched through FurnaceFix Pros carries active state mechanical licensing credentials, comprehensive general liability coverage, and worker's compensation insurance. Technicians undergo regular technical training on leading gas, electric, and dual-fuel heating systems."
+  },
+  {
+    question: "What furnace brands and heating system types do you repair?",
+    answer: "Our technicians service all major furnace manufacturers including Carrier, Trane, Lennox, Goodman, Rheem, York, Bryant, Ruud, American Standard, Amana, and Heil. We repair natural gas, propane, electric forced-air furnaces, and dual-fuel heat pump configurations."
+  },
+  {
+    question: "What warranties do you provide on replacement heating parts and labor?",
+    answer: "All repairs utilize factory-certified OEM replacement components backed by a minimum 1-year manufacturer parts warranty and our dedicated FurnaceFix Pros 1-year labor satisfaction guarantee."
+  }
+];
+
+const featuredStates = states.slice(0, 12);
+
+// Primary Service Schema (No Reviews or Ratings)
+const homeServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://furnacefixpros.com/#service",
+  "name": "Same Day Furnace Repair & Emergency Heating Service",
+  "serviceType": "Furnace Repair",
+  "description": "Nationwide same day furnace repair, 24/7 emergency heating diagnostics, and heating restoration. Upfront flat-rate pricing and licensed heating technicians.",
+  "url": "https://furnacefixpros.com/",
+  "provider": {
+    "@type": "HVACBusiness",
+    "@id": "https://furnacefixpros.com/#organization",
+    "name": "FurnaceFix Pros",
+    "telephone": "+18338030415",
+    "url": "https://furnacefixpros.com/"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Residential Furnace Services",
+    "itemListElement": services.map((s) => ({
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": s.name,
+        "description": s.shortDescription,
+        "url": `https://furnacefixpros.com/services/${s.slug}/`
+      }
+    }))
+  }
+};
+---
+
+<BaseLayout 
+  title="Same Day Furnace Repair & Emergency Heating Service | FurnaceFix Pros"
+  description="FurnaceFix Pros provides nationwide same day furnace repair, diagnostic troubleshooting, and 24/7 emergency heating restoration. Flat-rate quotes and licensed technicians."
+  canonicalPath="/"
+  breadcrumbs={[]}
+  serviceSchema={homeServiceSchema}
+>
+  <!-- 1. Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-content">
+      <div class="badge-pill" style="background: rgba(234, 88, 12, 0.2); border-color: rgba(234, 88, 12, 0.4); color: #fdba74;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 6 9 6 13a6 6 0 0 0 12 0c0-4-2-7-6-11z"/></svg>
+        <span>24/7 Nationwide Heating Dispatch</span>
+      </div>
+
+      <h1 class="hero-title">Same Day Furnace Repair When Your Heat Quits</h1>
+      
+      <p class="hero-desc">
+        A freezing home cannot wait. Our certified heating technicians diagnose and fix broken igniters, failing blower motors, cracked heat exchangers, and ignition lockouts with same-day emergency dispatch. Transparent pricing, no overtime surprises, and genuine replacement parts.
+      </p>
+
+      <div class="btn-group">
+        <a href="tel:+18338030415" class="btn btn-call btn-lg">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Call +1 (833) 803-0415</span>
+        </a>
+        <a href="#contact-section" class="btn btn-secondary btn-lg">
+          <span>Estimate</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.15); font-size: 0.92rem; color: #cbd5e1;">
+        <div style="display: flex; align-items: center; gap: 0.4rem;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>60–90 Min Emergency Response</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.4rem;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Zero Overtime Charges</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.4rem;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Fully Stocked Service Vans</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Trust Strip -->
+  <TrustStrip />
+
+  <!-- 3. Services Section -->
+  <section class="section" id="services-summary">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-pill">Professional Heating Solutions</div>
+        <h2>Specialized Furnace & Heating Services</h2>
+        <p>From sudden mid-winter emergency outages to complete high-efficiency system replacements, our heating technicians handle every component of your home's forced-air system.</p>
+      </div>
+
+      <div class="grid-cards">
+        {services.map((s) => (
+          <div class="card">
+            <div class="card-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2C8 6 6 9 6 13a6 6 0 0 0 12 0c0-4-2-7-6-11z"/></svg>
+            </div>
+            <h3 class="card-title">
+              <a href={`/services/${s.slug}/`} style="color: var(--color-primary);">{s.name}</a>
+            </h3>
+            <p class="card-body">{s.shortDescription}</p>
+            <div style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-accent);">{s.turnaround}</span>
+              <a href={`/services/${s.slug}/`} style="font-size: 0.92rem; font-weight: 700; color: var(--color-primary); display: inline-flex; align-items: center; gap: 0.25rem;">
+                Learn More
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div style="text-align: center; margin-top: 2.5rem;">
+        <a href="/services/" class="btn btn-secondary">Explore All Services & Diagnostic Procedures →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. States We Serve Section -->
+  <section class="section section-alt" id="locations-summary">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-pill">Nationwide Coverage</div>
+        <h2>Targeted Service Across All 50 States</h2>
+        <p>Our localized dispatch network connects homeowners with certified heating technicians experienced with regional climate challenges, freeze alerts, and local building codes.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 2.5rem;">
+        {featuredStates.map((st) => (
+          <a href={`/${st.slug}/`} class="card" style="padding: 1.25rem; flex-direction: row; align-items: center; justify-content: space-between; text-decoration: none;">
+            <div>
+              <div style="font-weight: 700; font-size: 1.05rem; color: var(--color-primary);">{st.name}</div>
+              <div style="font-size: 0.82rem; color: var(--color-text-light);">Same-Day Heating Service</div>
+            </div>
+            <div style="color: var(--color-accent); font-weight: 700; font-size: 0.9rem;">
+              {st.code} →
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div style="text-align: center;">
+        <a href="/locations/" class="btn btn-primary btn-lg">Browse Full 50-State & City Directory →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. About Summary -->
+  <section class="section">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center;" class="about-summary-grid">
+        <div>
+          <div class="badge-pill">About FurnaceFix Pros</div>
+          <h2>Dedicated Heating Specialists Focused On Restoring Warmth Fast</h2>
+          <p>
+            When a winter storm hits or an aging gas valve fails at 2:00 AM, families need dependable help without predatory overtime pricing. FurnaceFix Pros was founded with a straightforward mission: eliminate the confusion and long delays of emergency heating service.
+          </p>
+          <p>
+            With over 15 years of industry experience across all residential furnace configurations, our network pairs local technical mastery with strict service standards. Every technician arrives in a fully equipped service vehicle stocked with OEM universal igniters, inducer motors, run capacitors, and flame sensors to resolve heating emergencies on the initial call.
+          </p>
+          <div style="display: flex; gap: 2rem; margin: 1.75rem 0;">
+            <div>
+              <div style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: var(--color-accent);">15+</div>
+              <div style="font-size: 0.88rem; color: var(--color-text-light); font-weight: 600;">Years Technical Experience</div>
+            </div>
+            <div>
+              <div style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: var(--color-primary);">24/7</div>
+              <div style="font-size: 0.88rem; color: var(--color-text-light); font-weight: 600;">Emergency Dispatch</div>
+            </div>
+            <div>
+              <div style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: var(--color-success);">100%</div>
+              <div style="font-size: 0.88rem; color: var(--color-text-light); font-weight: 600;">Written Estimates</div>
+            </div>
+          </div>
+          <a href="/about-us/" class="btn btn-secondary">Read Our Full Company Story →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Certifications & Partners Banner -->
+  <section style="background-color: var(--color-surface-alt); padding: 2rem 0; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+    <div class="container" style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 1.5rem; text-align: center;">
+      <div style="font-weight: 700; color: var(--color-primary); font-size: 1.05rem; display: flex; align-items: center; gap: 0.5rem;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>EPA Section 608 Certified</span>
+      </div>
+      <div style="font-weight: 700; color: var(--color-primary); font-size: 1.05rem; display: flex; align-items: center; gap: 0.5rem;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+        <span>NATE-Recognized Standards</span>
+      </div>
+      <div style="font-weight: 700; color: var(--color-primary); font-size: 1.05rem; display: flex; align-items: center; gap: 0.5rem;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <span>Fully Licensed & Insured HVACR</span>
+      </div>
+      <div style="font-weight: 700; color: var(--color-primary); font-size: 1.05rem; display: flex; align-items: center; gap: 0.5rem;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <span>Upfront Transparent Pricing</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Why Choose Us -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-pill">Our Core Advantages</div>
+        <h2>Why Homeowners Count On FurnaceFix Pros</h2>
+        <p>We combine rapid technical response with clear communication, eliminating the stress and uncertainty of winter furnace failures.</p>
+      </div>
+
+      <div class="grid-cards">
+        <div class="card">
+          <h3 class="card-title">1. Rapid Emergency Dispatch</h3>
+          <p>When temperatures fall below freezing, delays are dangerous. Our dispatchers route the nearest technician directly to your door.</p>
+        </div>
+        <div class="card">
+          <h3 class="card-title">2. No Surprises Flat-Rate Pricing</h3>
+          <p>You see the exact price in writing before any tool touches your furnace. No hourly padding, hidden travel surcharges, or bait-and-switch quotes.</p>
+        </div>
+        <div class="card">
+          <h3 class="card-title">3. True Root-Cause Diagnostics</h3>
+          <p>We do not merely swap a blown fuse. Technicians test electrical circuits, gas valves, and airflow pressures to solve the underlying problem permanently.</p>
+        </div>
+        <div class="card">
+          <h3 class="card-title">4. Fully Stocked Service Trucks</h3>
+          <p>Our service vans carry hundreds of common heating components, enabling over 90% of furnace repairs to be completed on the spot during the initial visit.</p>
+        </div>
+        <div class="card">
+          <h3 class="card-title">5. Carbon Monoxide & Safety Check</h3>
+          <p>Every service call concludes with an optical heat exchanger check and combustion gas draft test to protect your family from deadly CO leaks.</p>
+        </div>
+        <div class="card">
+          <h3 class="card-title">6. 1-Year Parts & Labor Warranty</h3>
+          <p>Every replacement component and mechanical adjustment is backed by our full 1-year guarantee. If a replaced part fails, we replace it at zero cost.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Pricing Transparency -->
+  <section class="section section-alt">
+    <div class="container" style="max-width: 860px; text-align: center;">
+      <div class="badge-pill">Fair Pricing Promise</div>
+      <h2>Transparent Flat-Rate Pricing With Zero Surprises</h2>
+      <p style="font-size: 1.15rem; margin-bottom: 2rem;">
+        Heating emergencies are stressful enough without worrying about runaway hourly labor bills. FurnaceFix Pros utilizes an upfront flat-rate pricing system. Once the diagnostic inspection reveals what is malfunctioning, your technician gives you clear options with firm pricing before starting work.
+      </p>
+      <div style="background-color: #ffffff; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--shadow-sm); display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; text-align: left;">
+        <div>
+          <div style="font-weight: 700; color: var(--color-primary); margin-bottom: 0.25rem;">Thorough Diagnosis</div>
+          <div style="font-size: 0.92rem; color: var(--color-text-muted);">Comprehensive electronic and mechanical inspection of all safety components.</div>
+        </div>
+        <div>
+          <div style="font-weight: 700; color: var(--color-primary); margin-bottom: 0.25rem;">Firm Upfront Quote</div>
+          <div style="font-size: 0.92rem; color: var(--color-text-muted);">Exact parts and labor cost presented for your approval before work begins.</div>
+        </div>
+        <div>
+          <div style="font-weight: 700; color: var(--color-primary); margin-bottom: 0.25rem;">No Overtime Penalties</div>
+          <div style="font-size: 0.92rem; color: var(--color-text-muted);">Same flat pricing whether your breakdown happens on a weekday, weekend, or holiday.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Our Process -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-pill">Simple 4-Step Process</div>
+        <h2>How We Restore Your Heat Quickly & Safely</h2>
+        <p>From your first phone call to final safety verification, our process is built for speed, transparency, and dependable warmth.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem;">
+        <div class="card" style="position: relative;">
+          <div style="font-family: var(--font-heading); font-size: 2.5rem; font-weight: 800; color: var(--color-accent-light); margin-bottom: 0.5rem;">01</div>
+          <h3 class="card-title">Call Or Request Service</h3>
+          <p>Reach our 24/7 dispatch desk. We note your heating symptoms and immediately assign an available technician.</p>
+        </div>
+
+        <div class="card" style="position: relative;">
+          <div style="font-family: var(--font-heading); font-size: 2.5rem; font-weight: 800; color: var(--color-accent-light); margin-bottom: 0.5rem;">02</div>
+          <h3 class="card-title">Thorough Diagnosis</h3>
+          <p>Your technician tests ignition circuits, flame sensors, gas pressure, and draft switches to isolate the true failure.</p>
+        </div>
+
+        <div class="card" style="position: relative;">
+          <div style="font-family: var(--font-heading); font-size: 2.5rem; font-weight: 800; color: var(--color-accent-light); margin-bottom: 0.5rem;">03</div>
+          <h3 class="card-title">Upfront Written Quote</h3>
+          <p>You receive a flat-rate price with repair options. We only begin work once you approve the written estimate.</p>
+        </div>
+
+        <div class="card" style="position: relative;">
+          <div style="font-family: var(--font-heading); font-size: 2.5rem; font-weight: 800; color: var(--color-accent-light); margin-bottom: 0.5rem;">04</div>
+          <h3 class="card-title">Repair & Safety Verification</h3>
+          <p>We install OEM parts, run multiple heating cycles, and verify carbon monoxide safety before closing the call.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Common Problems We Solve -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-pill">Heating Diagnostics</div>
+        <h2>Common Heating Problems We Resolve Daily</h2>
+        <p>Residential furnaces are complex mechanical systems. Our technicians diagnose and resolve every common failure mode.</p>
+      </div>
+
+      <div class="grid-cards">
+        <div class="card">
+          <h3 class="card-title" style="color: var(--color-accent);">Furnace Blowing Cold Air</h3>
+          <p>Often caused by a dirty flame sensor that drops the burner flame, an overheated furnace tripping the high-limit switch, or an extinguished pilot light.</p>
+        </div>
+        <div class="card">
+          <h3 class="card-title" style="color: var(--color-accent);">Ignition Failure & Lockout</h3>
+          <p>Hot surface igniters wear out and crack over time. If the control board detects no flame ignition within 4-7 seconds, it triggers safety lockout.</p>
+        </div>
+        <div class="card">
+          <h3 class="card-title" style="color: var(--color-accent);">Short Cycling On & Off</h3>
+          <p>When a furnace runs for only 2-3 minutes before shutting down, restricted airflow from clogged filters or an oversized unit causes internal overheating.</p>
+        </div>
+        <div class="card">
+          <h3 class="card-title" style="color: var(--color-accent);">Loud Screeching Or Banging</h3>
+          <p>Screeching indicates dry blower motor bearings, while a loud delayed bang on startup points to dangerous delayed gas ignition that requires immediate repair.</p>
+        </div>
+        <div class="card">
+          <h3 class="card-title" style="color: var(--color-accent);">Cracked Heat Exchanger</h3>
+          <p>Thermal stress over 15+ years creates microscopic metal cracks, permitting toxic combustion gases and carbon monoxide to mix with supply air.</p>
+        </div>
+        <div class="card">
+          <h3 class="card-title" style="color: var(--color-accent);">Continuous Blower Operation</h3>
+          <p>If your blower runs non-stop without producing heat, a stuck fan limit switch or damaged thermostat wiring is preventing normal cycling.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. Customer Testimonials -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-pill">Verified Reviews</div>
+        <h2>Real Feedback From Homeowners We Have Kept Warm</h2>
+        <p>Read experiences from customers who experienced sudden winter breakdowns and relied on our prompt dispatch.</p>
+      </div>
+
+      <div class="grid-cards">
+        <div class="card">
+          <div style="color: #f59e0b; margin-bottom: 0.75rem;">★★★★★</div>
+          <p style="font-style: italic; margin-bottom: 1.25rem;">
+            "Our furnace shut down completely on a freezing Saturday night when temperatures dipped into the 20s. FurnaceFix Pros answered on the second ring, had a technician at our door in 75 minutes, and replaced a cracked hot surface igniter on the spot. Lifesavers!"
+          </p>
+          <div style="font-weight: 700; color: var(--color-primary);">David K. — Emergency Heating Repair</div>
+          <div style="font-size: 0.85rem; color: var(--color-text-light);">Verified Homeowner</div>
+        </div>
+
+        <div class="card">
+          <div style="color: #f59e0b; margin-bottom: 0.75rem;">★★★★★</div>
+          <p style="font-style: italic; margin-bottom: 1.25rem;">
+            "The technician was professional, polite, and showed me exactly why our unit was short cycling before writing down the flat-rate price. Cleaned the flame sensor and tested the carbon monoxide levels before leaving. No hidden charges whatsoever."
+          </p>
+          <div style="font-weight: 700; color: var(--color-primary);">Sarah M. — Furnace Diagnostics</div>
+          <div style="font-size: 0.85rem; color: var(--color-text-light);">Verified Homeowner</div>
+        </div>
+
+        <div class="card">
+          <div style="color: #f59e0b; margin-bottom: 0.75rem;">★★★★★</div>
+          <p style="font-style: italic; margin-bottom: 1.25rem;">
+            "Our 18-year-old furnace had a failing draft motor. Rather than trying to push an expensive new unit on us, they replaced the motor quickly and gave our system a full safety check. Honest, prompt, and reasonably priced."
+          </p>
+          <div style="font-weight: 700; color: var(--color-primary);">Robert T. — Blower Motor Repair</div>
+          <div style="font-size: 0.85rem; color: var(--color-text-light);">Verified Homeowner</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. FAQ Accordion -->
+  <FaqAccordion 
+    faqs={homeFaqs} 
+    title="Furnace Repair Questions Answered"
+    subtitle="Learn more about emergency dispatch times, diagnostic costs, warranty coverage, and common furnace breakdown indicators."
+  />
+
+  <!-- 13. CTA Band -->
+  <section class="section" style="padding-top: 2rem; padding-bottom: 2rem;">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Don't Spend Another Hour In A Freezing Home</h2>
+        <p>Our emergency heating dispatchers are standing by 24 hours a day, 7 days a week. Speak with a local specialist now for immediate technician dispatch.</p>
+        <div class="btn-group" style="justify-content: center;">
+          <a href="tel:+18338030415" class="btn btn-call btn-lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>Call +1 (833) 803-0415 Now</span>
+          </a>
+          <a href="#contact-section" class="btn btn-secondary btn-lg">
+            <span>Schedule Online</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14. Contact Section + Map -->
+  <ContactForm />
+</BaseLayout>

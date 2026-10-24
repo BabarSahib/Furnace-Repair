@@ -1,0 +1,101 @@
+---
+interface Props {
+  city?: string;
+  state?: string;
+}
+
+const { city, state } = Astro.props;
+const locationContext = city && state ? ` in ${city}, ${state}` : '';
+---
+
+<section class="section" id="contact-section">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <div class="badge-pill">Direct Heating Support</div>
+        <h2>Request Immediate Service Or Estimate{locationContext}</h2>
+        <p>
+          Need urgent heating restoration or looking to schedule a furnace inspection? Speak directly with a local dispatch coordinator for immediate technician routing and written estimate options.
+        </p>
+
+        <div style="background-color: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.75rem; margin-bottom: 2rem; box-shadow: var(--shadow-sm);">
+          <div style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.25rem;">
+            <div style="width: 44px; height: 44px; border-radius: 50%; background-color: var(--color-accent-light); color: var(--color-accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div style="font-size: 0.85rem; font-weight: 700; color: var(--color-text-light); text-transform: uppercase;">Primary Phone Line</div>
+              <a href="tel:+18338030415" style="font-size: 1.4rem; font-weight: 800; color: var(--color-primary); line-height: 1.3;">+1 (833) 803-0415</a>
+              <div style="font-size: 0.85rem; color: var(--color-success); font-weight: 600;">• Available 24 Hours / 7 Days a Week</div>
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.25rem;">
+            <div style="width: 44px; height: 44px; border-radius: 50%; background-color: var(--color-surface-alt); color: var(--color-primary); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div style="font-size: 0.85rem; font-weight: 700; color: var(--color-text-light); text-transform: uppercase;">Direct Dispatch Email</div>
+              <a href="mailto:service@furnacefixpros.com" style="font-size: 1.05rem; font-weight: 700; color: var(--color-primary);">service@furnacefixpros.com</a>
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: flex-start; gap: 1rem;">
+            <div style="width: 44px; height: 44px; border-radius: 50%; background-color: var(--color-surface-alt); color: var(--color-primary); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div style="font-size: 0.85rem; font-weight: 700; color: var(--color-text-light); text-transform: uppercase;">Service Coverage</div>
+              <div style="font-size: 1.05rem; font-weight: 600; color: var(--color-text-main);">Same-day emergency response across all targeted metro service areas.</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--color-border); height: 200px;">
+          <iframe 
+            title="Service Coverage Area"
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            loading="lazy" 
+            src={`https://maps.google.com/maps?q=${encodeURIComponent(city ? `${city}, ${state}` : 'United States')}&t=&z=${city ? '11' : '4'}&ie=UTF8&iwloc=&output=embed`}
+          ></iframe>
+        </div>
+      </div>
+
+      <div>
+        <div style="background-color: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 2.25rem; box-shadow: var(--shadow-md);">
+          <div class="badge-pill" style="margin-bottom: 0.75rem;">Immediate Technician Dispatch</div>
+          <h3 style="margin-bottom: 0.5rem; font-size: 1.45rem; color: var(--color-primary);">Call Now For Direct Estimate</h3>
+          <p style="font-size: 0.95rem; margin-bottom: 1.75rem; color: var(--color-text-muted);">
+            Our local dispatch coordinator routes the nearest certified on-call technician directly to your door with upfront flat-rate pricing.
+          </p>
+
+          <a href="tel:+18338030415" class="btn btn-call btn-lg" style="width: 100%; font-size: 1.25rem; padding: 1.15rem 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 4px 16px rgba(22, 163, 74, 0.3); text-decoration: none;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>Call +1 (833) 803-0415</span>
+          </a>
+
+          <div style="display: flex; flex-direction: column; gap: 0.85rem; padding-top: 1.25rem; border-top: 1px solid var(--color-border);">
+            <div style="display: flex; align-items: center; gap: 0.65rem; font-size: 0.92rem; color: var(--color-text-muted);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              <span><strong>Average Arrival:</strong> 60 to 90 Minutes for Emergency Heating</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.65rem; font-size: 0.92rem; color: var(--color-text-muted);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              <span><strong>Transparent Pricing:</strong> Upfront Written Estimate Before Any Work</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.65rem; font-size: 0.92rem; color: var(--color-text-muted);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              <span><strong>24/7 Availability:</strong> Zero Overtime Surcharges on Weekends</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.65rem; font-size: 0.92rem; color: var(--color-text-muted);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              <span><strong>Fully Certified:</strong> Licensed, Insured & NATE-Recognized</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

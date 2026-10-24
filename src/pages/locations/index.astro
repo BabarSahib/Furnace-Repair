@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TrustStrip from '../../components/TrustStrip.astro';
+import FaqAccordion from '../../components/FaqAccordion.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import states from '../../data/states.json';
+import cities from '../../data/cities.json';
+
+const locationsFaqs = [
+  {
+    question: "Do you provide furnace repair services in rural and suburban areas outside major cities?",
+    answer: "Yes. Our regional dispatch contractors serve both core metropolitan areas and their surrounding suburban towns, counties, and rural communities. Enter your zip code or select your state to view immediate local availability."
+  },
+  {
+    question: "Are your heating technicians familiar with regional climate challenges?",
+    answer: "Yes. Technicians in northern states specialize in high-efficiency condensing furnaces and freeze protection, while technicians in southern and desert regions specialize in dual-fuel heat pumps and seasonal pilot/ignition restarts."
+  },
+  {
+    question: "Do local response times vary by state or weather conditions?",
+    answer: "During severe blizzards or regional ice storms, call volumes rise significantly. However, we prioritize emergency no-heat situations, frozen pipe risks, and vulnerable households with our dedicated 24/7 on-call dispatch protocol."
+  },
+  {
+    question: "Are technicians licensed according to individual state contractor requirements?",
+    answer: "Every heating contractor in our network maintains active licensing, bonding, and liability coverage in compliance with their respective state licensing boards and municipal mechanical codes."
+  },
+  {
+    question: "How do I find furnace repair services for my specific city?",
+    answer: "Select your state from the comprehensive list below. Each state page provides direct links to specific city pages, listing real local zip codes, neighborhoods served, and direct click-to-call phone lines."
+  }
+];
+
+// Helper to count cities per state
+const citiesByState: Record<string, number> = {};
+cities.forEach(c => {
+  citiesByState[c.state] = (citiesByState[c.state] || 0) + 1;
+});
+
+// Nationwide Service Directory Schema (No Reviews or Ratings)
+const locationsServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://furnacefixpros.com/locations/#service",
+  "name": "Nationwide Furnace Repair & Heating Dispatch",
+  "serviceType": "Furnace Repair",
+  "description": "Nationwide heating network providing certified same-day furnace repairs, emergency heating restoration, and diagnostic troubleshooting across all 50 states.",
+  "url": "https://furnacefixpros.com/locations/",
+  "provider": {
+    "@type": "HVACBusiness",
+    "@id": "https://furnacefixpros.com/#organization",
+    "name": "FurnaceFix Pros",
+    "telephone": "+18338030415",
+    "url": "https://furnacefixpros.com/"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+  }
+};
+---
+
+<BaseLayout
+  title="Furnace Repair Locations | Nationwide 50-State Heating Directory"
+  description="Find certified furnace repair, heating diagnostics, and 24/7 emergency heating services across all 50 states. Select your state to view local cities and technician dispatch."
+  canonicalPath="/locations/"
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "Locations", url: "/locations/" }
+  ]}
+  serviceSchema={locationsServiceSchema}
+>
+  <!-- Hero Banner -->
+  <section class="hero-section" style="padding: 3.5rem 0;">
+    <div class="container hero-content">
+      <div class="badge-pill" style="background: rgba(234, 88, 12, 0.2); border-color: rgba(234, 88, 12, 0.4); color: #fdba74;">
+        <span>50-State Heating Network</span>
+      </div>
+      <h1 class="hero-title">Nationwide Furnace Repair Service Areas</h1>
+      <p class="hero-desc">
+        Browse our comprehensive state directory to connect with verified, licensed heating technicians in your local community. Same-day emergency response, upfront pricing, and 24/7 on-call dispatch nationwide.
+      </p>
+      <div class="btn-group">
+        <a href="tel:+18338030415" class="btn btn-call btn-lg">Call +1 (833) 803-0415</a>
+        <a href="#state-grid-section" class="btn btn-secondary btn-lg">Select Your State Below ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Strip -->
+  <TrustStrip />
+
+  <!-- All States Grid -->
+  <section class="section" id="state-grid-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-pill">State Directory</div>
+        <h2>Select Your State For Local City Coverage</h2>
+        <p>Each state hub provides localized climate insights, regional licensing credentials, and direct access to our city-specific emergency repair teams.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem;">
+        {states.map((st) => (
+          <a href={`/${st.slug}/`} class="card" style="padding: 1.35rem; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none;">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                <span style="font-weight: 800; font-size: 1.15rem; color: var(--color-primary);">{st.name}</span>
+                <span style="font-size: 0.85rem; font-weight: 700; background: var(--color-surface-alt); padding: 0.2rem 0.5rem; border-radius: var(--radius-sm); color: var(--color-accent);">{st.code}</span>
+              </div>
+              <p style="font-size: 0.88rem; color: var(--color-text-muted); margin-bottom: 0.75rem; line-height: 1.4;">
+                {st.climateOverview.slice(0, 85)}...
+              </p>
+            </div>
+            <div style="padding-top: 0.75rem; border-top: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; font-weight: 700; color: var(--color-accent);">
+              <span>{citiesByState[st.code] ? `${citiesByState[st.code]} Targeted Cities` : 'Full State Coverage'}</span>
+              <span>View Hub →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Our Network -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-pill">National Reach, Local Roots</div>
+        <h2>Why Our Local Service Structure Matters</h2>
+        <p>Unlike distant call centers, our platform connects you with technicians who actually live and work in your regional climate zone.</p>
+      </div>
+
+      <div class="grid-cards">
+        <div class="card">
+          <h3 class="card-title">Local Climate Familiarity</h3>
+          <p>Whether handling sub-zero Midwest polar vortexes, high-altitude Rockies ignition pressures, or southern freeze events, our technicians understand the exact stresses your system faces.</p>
+        </div>
+        <div class="card">
+          <h3 class="card-title">Strict State Code Compliance</h3>
+          <p>Every repair meets local municipal mechanical codes, state fuel safety standards, and manufacturer venting guidelines to protect home safety and insurance coverage.</p>
+        </div>
+        <div class="card">
+          <h3 class="card-title">Unified Quality & Pricing</h3>
+          <p>No matter what state you call from, you receive the same transparent flat-rate pricing guarantee, written estimates, and 1-year parts and labor warranty.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <FaqAccordion 
+    faqs={locationsFaqs}
+    title="Locations & Service Area FAQs"
+    subtitle="Learn more about our nationwide coverage, technician dispatch policies, and regional availability."
+  />
+
+  <!-- CTA Band -->
+  <section class="section" style="padding-top: 2rem; padding-bottom: 2rem;">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Find Emergency Heating Support In Your Area</h2>
+        <p>Call our central dispatch desk 24 hours a day to connect with an on-call furnace repair specialist in your community.</p>
+        <div class="btn-group" style="justify-content: center;">
+          <a href="tel:+18338030415" class="btn btn-call btn-lg">Call +1 (833) 803-0415</a>
+          <a href="#contact-section" class="btn btn-secondary btn-lg">Contact Us Online</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form & Map -->
+  <ContactForm />
+</BaseLayout>

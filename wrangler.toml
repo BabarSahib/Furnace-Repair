@@ -1,0 +1,6 @@
+name = "furnacefixpros"
+compatibility_date = "2024-03-20"
+
+# Pure static assets hosting via Cloudflare Workers Static Assets
+# Zero server-side page generation at runtime
+assets = { directory = "dist" }

@@ -1,0 +1,140 @@
+[
+  {
+    "id": "emergency-furnace-repair",
+    "slug": "emergency-furnace-repair",
+    "name": "Emergency Furnace Repair",
+    "shortDescription": "24/7 same-day emergency furnace repair for heating outages, gas odor warnings, and sudden mid-winter breakdowns.",
+    "tagline": "Rapid Heating Restoration When Every Degree Matters",
+    "icon": "fire",
+    "turnaround": "Same-Day Dispatch (Within 60-90 Mins)",
+    "commonProblems": [
+      "Furnace completely shut down during sub-zero temperatures",
+      "Blower continuously blowing icy cold air throughout home",
+      "Persistent electrical burning or scorched dust smell from vents",
+      "Loud knocking, screeching, or bang upon heating ignition",
+      "Thermostat calling for heat but gas burner fails to ignite"
+    ],
+    "scope": [
+      "Rapid diagnostic inspection of electrical circuits and safety switches",
+      "Gas valve pressure verification and electronic igniter testing",
+      "Blower motor capacitor and run winding analysis",
+      "Thermal limit switch reset and flame sensor burnishing",
+      "Full post-repair draft test and carbon monoxide safety audit"
+    ]
+  },
+  {
+    "id": "heating-repair-diagnostics",
+    "slug": "heating-repair-diagnostics",
+    "name": "Heating Repair & Diagnostics",
+    "shortDescription": "Precision diagnostic troubleshooting to pinpoint ignition failure, short-cycling, sensor errors, and duct airflow restrictions.",
+    "tagline": "Accurate Diagnostics That Solve the Root Cause on the First Visit",
+    "icon": "tool",
+    "turnaround": "Same-Day / Next-Day Scheduled Service",
+    "commonProblems": [
+      "Heater turns on for 2-3 minutes then shuts down prematurely (short cycling)",
+      "Uneven room temperatures between floors and distant bedrooms",
+      "Diagnostic LED control board flashing fault error codes",
+      "Weak warm airflow coming from supply registers",
+      "Unexplained spike in monthly heating fuel or electric bills"
+    ],
+    "scope": [
+      "Microamp flame sensor signal diagnostics",
+      "Static pressure testing across blower assembly and duct trunk lines",
+      "Thermostat voltage calibration and 24V transformer testing",
+      "Combustion air intake verification and vent pipe draft measurement",
+      "Complete written diagnostic report with transparent upfront pricing"
+    ]
+  },
+  {
+    "id": "furnace-repair",
+    "slug": "furnace-repair",
+    "name": "Furnace Repair",
+    "shortDescription": "Comprehensive component repair and replacement for gas, electric, and dual-fuel residential heating systems.",
+    "tagline": "Reliable Component Repairs Backed by Genuine OEM Parts",
+    "icon": "wrench",
+    "turnaround": "Same-Day Service Guarantee",
+    "commonProblems": [
+      "Cracked silicon nitride or carborundum hot surface igniters",
+      "Worn inducer fan motor bearings creating high-pitch whine",
+      "Stuck or malfunctioning gas valve solenoids",
+      "Failing run capacitors causing blower motor humming",
+      "Corroded flame sensors preventing sustained flame verification"
+    ],
+    "scope": [
+      "Direct OEM replacement of faulty mechanical and electrical parts",
+      "Burner tube cleaning and precision orifice adjustment",
+      "Safety interlock switch testing and blower compartment sealing",
+      "Temperature rise measurement against manufacturer specifications",
+      "Operational verification across full heating cycles"
+    ]
+  },
+  {
+    "id": "furnace-maintenance-tune-up",
+    "slug": "furnace-maintenance-tune-up",
+    "name": "Furnace Maintenance & Tune-Up",
+    "shortDescription": "Multi-point precision heating tune-ups designed to lower energy bills, prevent emergency breakdowns, and extend furnace lifespan.",
+    "tagline": "Peak Efficiency, Lower Energy Bills, and Zero Surprise Breakdowns",
+    "icon": "check-shield",
+    "turnaround": "Scheduled Annual Maintenance",
+    "commonProblems": [
+      "High winter utility bills caused by uncalibrated combustion",
+      "Dusty odors circulated through vents at seasonal startup",
+      "Accumulated debris choking combustion chamber efficiency",
+      "Restricted airflow accelerating heat exchanger metal fatigue",
+      "Voided manufacturer warranty due to skipped annual tune-up records"
+    ],
+    "scope": [
+      "24-point thorough safety and efficiency inspection",
+      "Chemical cleaning of flame sensor and primary burners",
+      "Heat exchanger visual and optical camera inspection for hairline cracks",
+      "Electrical amp-draw testing on blower and inducer motors",
+      "Condensate trap flush for 90%+ high-efficiency condensing furnaces"
+    ]
+  },
+  {
+    "id": "furnace-installation",
+    "slug": "furnace-installation",
+    "name": "Furnace Installation",
+    "shortDescription": "Engineered furnace installations matched to home square footage using Manual J load calculations for maximum seasonal comfort.",
+    "tagline": "Engineered Installations Built for Decades of Quiet, Dependable Warmth",
+    "icon": "sparkles",
+    "turnaround": "Complete In 1 Business Day",
+    "commonProblems": [
+      "Installing an oversized or undersized furnace that short cycles",
+      "Poorly connected transition ductwork leaking heated air into crawlspaces",
+      "Improper venting pitch causing acidic condensate pooling in PVC pipes",
+      "Lack of proper gas line sediment traps causing valve clogs",
+      "Incompatible low-voltage wiring for modern communicating thermostats"
+    ],
+    "scope": [
+      "Custom ACCA Manual J load calculation for exact BTU sizing",
+      "Professional removal and eco-friendly disposal of existing unit",
+      "Heavy-gauge metal supply and return transition fabrication",
+      "Upgraded gas flex line, shutoff valve, and dedicated sediment trap",
+      "Complete commissioning checklist verifying gas pressure and draft"
+    ]
+  },
+  {
+    "id": "furnace-replacement",
+    "slug": "furnace-replacement",
+    "name": "Furnace Replacement",
+    "shortDescription": "High-efficiency furnace replacements featuring up to 98% AFUE variable-speed systems that drastically cut winter heating costs.",
+    "tagline": "Upgrade from Aging, Inefficient Heating to Modern 96%+ AFUE Comfort",
+    "icon": "refresh",
+    "turnaround": "Next-Day Scheduled Replacement",
+    "commonProblems": [
+      "Furnace older than 15-20 years requiring frequent costly repairs",
+      "Cracked heat exchanger presenting immediate carbon monoxide risk",
+      "Discontinued replacement parts making older units unserviceable",
+      "Loud rumble upon ignition indicating delayed ignition danger",
+      "Outdated 65-70% AFUE units wasting 30+ cents of every heating dollar"
+    ],
+    "scope": [
+      "Home heating audit and ductwork suitability assessment",
+      "Guidance on single-stage, two-stage, and modulating variable-speed units",
+      "Assistance with utility rebate qualification and energy efficiency credits",
+      "Full turnkey installation including code-compliant combustion venting",
+      "Comprehensive homeowner orientation on new programmable thermostat"
+    ]
+  }
+]

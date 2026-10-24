@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import ContactForm from '../components/ContactForm.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
+
+const contactFaqs = [
+  {
+    question: "What information should I have ready when calling for furnace service?",
+    answer: "It is helpful to know the approximate age of your heating system, the brand name on the front access panel (e.g. Carrier, Trane, Lennox), and a brief description of the symptom (e.g. blowing cold air, making banging sounds, or completely unresponsive at the thermostat)."
+  },
+  {
+    question: "Do you charge extra for emergency heating calls at night or on weekends?",
+    answer: "No. FurnaceFix Pros utilizes flat-rate pricing. We provide upfront quotes before work begins, with no inflated midnight overtime penalties or weekend surcharges."
+  },
+  {
+    question: "Can I schedule a non-emergency appointment for a routine tune-up?",
+    answer: "Yes. While we specialize in urgent 24/7 emergency dispatch, you can easily schedule routine furnace maintenance, seasonal inspections, or system replacement consultations during regular business hours."
+  }
+];
+---
+
+<BaseLayout
+  title="Contact FurnaceFix Pros | 24/7 Heating Dispatch & Customer Support"
+  description="Contact FurnaceFix Pros for same-day furnace repair and 24/7 emergency heating dispatch. Call +1 (833) 803-0415 or submit your service request online."
+  canonicalPath="/contact-us/"
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "Contact Us", url: "/contact-us/" }
+  ]}
+>
+  <!-- Hero Banner -->
+  <section class="hero-section" style="padding: 3.5rem 0;">
+    <div class="container hero-content">
+      <div class="badge-pill" style="background: rgba(234, 88, 12, 0.2); border-color: rgba(234, 88, 12, 0.4); color: #fdba74;">
+        <span>24/7 Direct Dispatch</span>
+      </div>
+      <h1 class="hero-title">Contact Our Heating Specialists</h1>
+      <p class="hero-desc">
+        Need urgent furnace repair or have a question about heating diagnostics? Speak directly with an on-call dispatch coordinator or submit your service request below for prompt confirmation.
+      </p>
+      <div class="btn-group">
+        <a href="tel:+18338030415" class="btn btn-call btn-lg">Call +1 (833) 803-0415</a>
+        <a href="#contact-section" class="btn btn-secondary btn-lg">Book Service Online ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Strip -->
+  <TrustStrip />
+
+  <!-- Main Contact Form & Map Section -->
+  <ContactForm />
+
+  <!-- Pre-Contact FAQs -->
+  <FaqAccordion 
+    faqs={contactFaqs}
+    title="Questions Before Reaching Out"
+    subtitle="Helpful answers regarding scheduling, diagnostic procedures, and dispatch windows."
+  />
+</BaseLayout>

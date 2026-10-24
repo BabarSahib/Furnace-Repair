@@ -1,0 +1,512 @@
+[
+  {
+    "code": "AL",
+    "name": "Alabama",
+    "slug": "alabama",
+    "capital": "Montgomery",
+    "climateOverview": "Humid subtropical climate with sharp winter frost and sudden damp cold snaps that trigger heavy heating loads after long periods of inactivity.",
+    "commonFurnaceIssues": "Corroded ignition contacts from humid off-seasons, failed heat pump reversing valves, and clogged furnace drain traps.",
+    "licensingBody": "State of Alabama Board of Heating, Air Conditioning & Refrigeration Contractors",
+    "licensingUrl": "https://hacr.alabama.gov/"
+  },
+  {
+    "code": "AK",
+    "name": "Alaska",
+    "slug": "alaska",
+    "capital": "Juneau",
+    "climateOverview": "Extreme subarctic winter conditions with sustained sub-zero temperatures, intense wind chills, and continuous round-the-clock heating reliance.",
+    "commonFurnaceIssues": "Frozen condensate drainage lines in 90%+ AFUE condensing units, draft inducer motor burnout, and cracked primary heat exchangers.",
+    "licensingBody": "Alaska Division of Corporations, Business and Professional Licensing",
+    "licensingUrl": "https://www.commerce.alaska.gov/web/cbpl/"
+  },
+  {
+    "code": "AZ",
+    "name": "Arizona",
+    "slug": "arizona",
+    "capital": "Phoenix",
+    "climateOverview": "Desert winter climate with intense daytime-to-nighttime temperature swings of 30°F+ causing rapid daily heating ignition cycles.",
+    "commonFurnaceIssues": "Fine desert dust coating flame sensors and burners during months of summer AC use, resulting in startup ignition lockouts.",
+    "licensingBody": "Arizona Registrar of Contractors",
+    "licensingUrl": "https://roc.az.gov/"
+  },
+  {
+    "code": "AR",
+    "name": "Arkansas",
+    "slug": "arkansas",
+    "capital": "Little Rock",
+    "climateOverview": "Four-season climate featuring sudden ice storms and damp Ozark winter cold fronts that demand immediate, reliable furnace response.",
+    "commonFurnaceIssues": "Thermocouple degradation, faulty limit switches from restricted filter airflow, and gas valve pressure irregularities.",
+    "licensingBody": "Arkansas Department of Labor and Licensing (HVACR Division)",
+    "licensingUrl": "https://www.labor.arkansas.gov/"
+  },
+  {
+    "code": "CA",
+    "name": "California",
+    "slug": "california",
+    "capital": "Sacramento",
+    "climateOverview": "Diverse regional climate ranging from damp coastal marine chills to Sierra snowstorms and Central Valley valley-fog cold snaps.",
+    "commonFurnaceIssues": "Ultra-low NOx burner failure, older atmospheric draft chimney issues in mid-century homes, and electronic control board faults.",
+    "licensingBody": "California Contractors State License Board (CSLB C-20)",
+    "licensingUrl": "https://www.cslb.ca.gov/"
+  },
+  {
+    "code": "CO",
+    "name": "Colorado",
+    "slug": "colorado",
+    "capital": "Denver",
+    "climateOverview": "High-altitude Rocky Mountain winter with heavy snowfall, sub-zero cold waves, and thin air requiring precise combustion air adjustment.",
+    "commonFurnaceIssues": "High-altitude pressure switch calibration issues, restricted combustion intake vents due to snow drifts, and blower motor strain.",
+    "licensingBody": "Colorado Department of Regulatory Agencies (DORA)",
+    "licensingUrl": "https://dora.colorado.gov/"
+  },
+  {
+    "code": "CT",
+    "name": "Connecticut",
+    "slug": "connecticut",
+    "capital": "Hartford",
+    "climateOverview": "New England coastal and inland winter cold with heavy nor'easters, freezing rain, and sustained below-freezing temperatures.",
+    "commonFurnaceIssues": "Cracked heat exchangers in older housing stock, oil-to-gas converted burner issues, and failed draft inducer blowers.",
+    "licensingBody": "Connecticut Department of Consumer Protection (Occupational Licensing)",
+    "licensingUrl": "https://portal.ct.gov/dcp"
+  },
+  {
+    "code": "DE",
+    "name": "Delaware",
+    "slug": "delaware",
+    "capital": "Dover",
+    "climateOverview": "Mid-Atlantic coastal humidity mixed with freezing winter winds off Delaware Bay and the Atlantic Ocean.",
+    "commonFurnaceIssues": "Salt air corrosion on exterior intake terminals, clogged condensate traps, and faulty ignition control modules.",
+    "licensingBody": "Delaware Division of Professional Regulation",
+    "licensingUrl": "https://dpr.delaware.gov/"
+  },
+  {
+    "code": "FL",
+    "name": "Florida",
+    "slug": "florida",
+    "capital": "Tallahassee",
+    "climateOverview": "Primarily mild winters punctuated by sharp northern panhandle and central freezes that catch unmaintained heating systems unprepared.",
+    "commonFurnaceIssues": "Dust burning odors on first winter startup, auxiliary strip heat failure, and corroded electrical sequencers.",
+    "licensingBody": "Florida Department of Business and Professional Regulation (DBPR)",
+    "licensingUrl": "https://www.myfloridalicense.com/"
+  },
+  {
+    "code": "GA",
+    "name": "Georgia",
+    "slug": "georgia",
+    "capital": "Atlanta",
+    "climateOverview": "Piedmont and Appalachian winter chills with periodic severe ice storms and rapid 24-hour temperature plunges.",
+    "commonFurnaceIssues": "Dirty flame sensors causing burner drop-out within seconds, dual-fuel heat pump defrost board failures, and clogged air filters.",
+    "licensingBody": "Georgia State Licensing Board for Conditioned Air Contractors",
+    "licensingUrl": "https://sos.ga.gov/"
+  },
+  {
+    "code": "HI",
+    "name": "Hawaii",
+    "slug": "hawaii",
+    "capital": "Honolulu",
+    "climateOverview": "Tropical climate with targeted high-elevation heating needs on Maui (Upcountry) and the Big Island where overnight temperatures drop into the 40s.",
+    "commonFurnaceIssues": "High salt humidity corrosion on electrical contacts and gas supply lines in high-altitude volcanic residential zones.",
+    "licensingBody": "Hawaii Professional and Vocational Licensing Division",
+    "licensingUrl": "https://cca.hawaii.gov/pvl/"
+  },
+  {
+    "code": "ID",
+    "name": "Idaho",
+    "slug": "idaho",
+    "capital": "Boise",
+    "climateOverview": "Intermountain Northwest cold with prolonged sub-freezing winters, heavy mountain snow, and dry freezing inversion layers.",
+    "commonFurnaceIssues": "Flue pipe freeze-ups, cracked heat exchangers from heavy continuous run-times, and blower capacitor degradation.",
+    "licensingBody": "Idaho Division of Occupational and Professional Licenses (DOPL)",
+    "licensingUrl": "https://dopl.idaho.gov/"
+  },
+  {
+    "code": "IL",
+    "name": "Illinois",
+    "slug": "illinois",
+    "capital": "Springfield",
+    "climateOverview": "Severe Midwestern continental winters with lake-effect blizzards, Arctic polar vortex events, and sub-zero wind chills for weeks.",
+    "commonFurnaceIssues": "Pressure switch lockouts from iced vent terminations, cracked cast-iron and tubular heat exchangers, and continuous limit switch trips.",
+    "licensingBody": "Illinois Department of Public Health & Local Municipal Licensing Boards",
+    "licensingUrl": "https://dph.illinois.gov/"
+  },
+  {
+    "code": "IN",
+    "name": "Indiana",
+    "slug": "indiana",
+    "capital": "Indianapolis",
+    "climateOverview": "Classic Ohio Valley winters featuring heavy snowfall, sleet, and harsh freezing conditions requiring 24/7 heating dependability.",
+    "commonFurnaceIssues": "Worn hot surface igniters (HSI), draft inducer motor bearing failure, and blower run capacitor burnouts.",
+    "licensingBody": "Indiana Professional Licensing Agency",
+    "licensingUrl": "https://www.in.gov/pla/"
+  },
+  {
+    "code": "IA",
+    "name": "Iowa",
+    "slug": "iowa",
+    "capital": "Des Moines",
+    "climateOverview": "Open plains winter with relentless arctic winds, sub-zero overnight temperatures, and heavy snow drifts blocking sidewall vents.",
+    "commonFurnaceIssues": "Frozen exterior PVC exhaust pipes, combustion air starvation, and high-limit thermal switch failures.",
+    "licensingBody": "Iowa Plumbing and Mechanical Systems Board",
+    "licensingUrl": "https://hhs.iowa.gov/pmsb"
+  },
+  {
+    "code": "KS",
+    "name": "Kansas",
+    "slug": "kansas",
+    "capital": "Topeka",
+    "climateOverview": "Great Plains weather extremes with sharp polar fronts, sudden blizzards, and fierce winter wind chills.",
+    "commonFurnaceIssues": "Ignition module failure, dirty burner orifices restricting flame spread, and return duct static pressure restrictions.",
+    "licensingBody": "Kansas Board of Technical Professions & Local County Jurisdictions",
+    "licensingUrl": "https://www.ksbtp.ks.gov/"
+  },
+  {
+    "code": "KY",
+    "name": "Kentucky",
+    "slug": "kentucky",
+    "capital": "Frankfort",
+    "climateOverview": "Humid continental climate with frequent freezing rain, sudden freeze-thaw cycles, and damp winter cold.",
+    "commonFurnaceIssues": "Flame rectification errors on older control boards, thermocouple burnout in standing pilot units, and gas valve sticking.",
+    "licensingBody": "Kentucky Department of Housing, Buildings and Construction (HVAC Division)",
+    "licensingUrl": "https://dhbc.ky.gov/"
+  },
+  {
+    "code": "LA",
+    "name": "Louisiana",
+    "slug": "louisiana",
+    "capital": "Baton Rouge",
+    "climateOverview": "Humid Gulf Coast climate where sudden arctic cold fronts clash with humid air, creating bone-chilling damp cold snaps.",
+    "commonFurnaceIssues": "Severe condensation trap clogs, rusted burner manifolds from high summer humidity, and electric heat strip sequencer failures.",
+    "licensingBody": "Louisiana State Licensing Board for Contractors",
+    "licensingUrl": "https://lslbc.louisiana.gov/"
+  },
+  {
+    "code": "ME",
+    "name": "Maine",
+    "slug": "maine",
+    "capital": "Augusta",
+    "climateOverview": "Harsh maritime and northern forest winters with prolonged deep freezes, heavy coastal nor'easters, and multi-foot snow accumulations.",
+    "commonFurnaceIssues": "Cracked heat exchangers, blocked sidewall vents, and failed draft inducers struggling against heavy exterior backdrafts.",
+    "licensingBody": "Maine Fuel Board",
+    "licensingUrl": "https://www.maine.gov/pfr/professionallicensing/professions/fuel-board"
+  },
+  {
+    "code": "MD",
+    "name": "Maryland",
+    "slug": "maryland",
+    "capital": "Annapolis",
+    "climateOverview": "Mid-Atlantic winter weather with damp Chesapeake Bay winds, icy precipitation, and freeze-thaw cycles stressing mechanical systems.",
+    "commonFurnaceIssues": "Blower motor capacitor breakdown, corroded flame sensors, and gas valve pressure regulator drift.",
+    "licensingBody": "Maryland State Board of Heating, Ventilation, Air Conditioning and Refrigeration Contractors",
+    "licensingUrl": "https://www.labor.maryland.gov/license/hvacr/"
+  },
+  {
+    "code": "MA",
+    "name": "Massachusetts",
+    "slug": "massachusetts",
+    "capital": "Boston",
+    "climateOverview": "Intense New England winter with historic blizzard events, coastal gales, and deep sustained freezes testing aging heating infrastructure.",
+    "commonFurnaceIssues": "Older gravity and atmospheric conversion issues, cracked cast exchangers, and condensate line freezing in unconditioned basements.",
+    "licensingBody": "Massachusetts Division of Occupational Licensure (Board of State Examiners of Plumbers and Gas Fitters)",
+    "licensingUrl": "https://www.mass.gov/orgs/division-of-occupational-licensure"
+  },
+  {
+    "code": "MI",
+    "name": "Michigan",
+    "slug": "michigan",
+    "capital": "Lansing",
+    "climateOverview": "Heavy Great Lakes lake-effect snow belts, sub-zero polar temperatures, and long, demanding 6-month heating seasons.",
+    "commonFurnaceIssues": "Exhaust vent icing, secondary heat exchanger clogging in condensing furnaces, and blower motor bearing failure.",
+    "licensingBody": "Michigan Department of Licensing and Regulatory Affairs (LARA)",
+    "licensingUrl": "https://www.michigan.gov/lara"
+  },
+  {
+    "code": "MN",
+    "name": "Minnesota",
+    "slug": "minnesota",
+    "capital": "St. Paul",
+    "climateOverview": "One of the coldest states in the nation with routine -20°F to -30°F temperatures where continuous furnace operation is life-critical.",
+    "commonFurnaceIssues": "Rapid thermal stress fractures on heat exchangers, frozen PVC exhaust pipes, and high-limit safety cutouts.",
+    "licensingBody": "Minnesota Department of Labor and Industry",
+    "licensingUrl": "https://www.dli.mn.gov/"
+  },
+  {
+    "code": "MS",
+    "name": "Mississippi",
+    "slug": "mississippi",
+    "capital": "Jackson",
+    "climateOverview": "Damp southern winters with frequent sudden cold snaps that push unserviced furnaces to unexpected failure points.",
+    "commonFurnaceIssues": "Igniter failure after months of non-use, dirty flame sensors, and electric auxiliary heat coil burnout.",
+    "licensingBody": "Mississippi State Board of Contractors",
+    "licensingUrl": "https://www.msboc.us/"
+  },
+  {
+    "code": "MO",
+    "name": "Missouri",
+    "slug": "missouri",
+    "capital": "Jefferson City",
+    "climateOverview": "Midwestern weather crossroads experiencing severe ice storms, polar vortex dips, and wide winter temperature volatility.",
+    "commonFurnaceIssues": "Short-cycling from dirty flame sensors, cracked heat exchangers, and noisy inducer fan motor assemblies.",
+    "licensingBody": "Missouri Division of Professional Registration & County Boards",
+    "licensingUrl": "https://pr.mo.gov/"
+  },
+  {
+    "code": "MT",
+    "name": "Montana",
+    "slug": "montana",
+    "capital": "Helena",
+    "climateOverview": "High northern plains and alpine winter characterized by severe sub-zero cold spells and heavy mountain snowfall.",
+    "commonFurnaceIssues": "Combustion air intake blockage, thermal limit switch trip, and continuous blower motor electrical wear.",
+    "licensingBody": "Montana Department of Labor & Industry",
+    "licensingUrl": "https://dli.mt.gov/"
+  },
+  {
+    "code": "NE",
+    "name": "Nebraska",
+    "slug": "nebraska",
+    "capital": "Lincoln",
+    "climateOverview": "Intense winter prairie winds, deep drifting snow, and sustained freezing temperatures throughout December through March.",
+    "commonFurnaceIssues": "Snow drift blocked intake vents, cracked heat exchangers from high temperature rise, and faulty pilot assemblies.",
+    "licensingBody": "Nebraska State Mechanical Licensing Jurisdictions",
+    "licensingUrl": "https://dol.nebraska.gov/"
+  },
+  {
+    "code": "NV",
+    "name": "Nevada",
+    "slug": "nevada",
+    "capital": "Carson City",
+    "climateOverview": "High desert and mountain climates with freezing nighttime lows in Las Vegas and heavy Sierra snowfall in Reno/Sparks.",
+    "commonFurnaceIssues": "Dust clogged ignition burners, faulty electronic control boards, and pressure switch failure.",
+    "licensingBody": "Nevada State Contractors Board",
+    "licensingUrl": "https://www.nscb.nv.gov/"
+  },
+  {
+    "code": "NH",
+    "name": "New Hampshire",
+    "slug": "new-hampshire",
+    "capital": "Concord",
+    "climateOverview": "Rigorous northern New England winter with heavy snowfall, sub-zero mountain air, and long heating cycles.",
+    "commonFurnaceIssues": "Condensing furnace drain line freezes, draft inducer failures, and ignition electrode wear.",
+    "licensingBody": "New Hampshire Mechanical Safety and Licensing Board",
+    "licensingUrl": "https://www.oplc.nh.gov/mechanical-safety-and-licensing-board"
+  },
+  {
+    "code": "NJ",
+    "name": "New Jersey",
+    "slug": "new-jersey",
+    "capital": "Trenton",
+    "climateOverview": "Damp coastal storms, freezing rain, and dense residential housing with diverse steam, hydronic, and forced-air heating setups.",
+    "commonFurnaceIssues": "Aging furnace heat exchanger cracks, electronic spark ignition failures, and dirty blower wheels.",
+    "licensingBody": "New Jersey State Board of Examiners of Heating, Ventilating, Air Conditioning and Refrigeration (HVACR) Contractors",
+    "licensingUrl": "https://www.njconsumeraffairs.gov/hvacr"
+  },
+  {
+    "code": "NM",
+    "name": "New Mexico",
+    "slug": "new-mexico",
+    "capital": "Santa Fe",
+    "climateOverview": "High-altitude arid climate with freezing desert night temperatures and mountain winter snowfall requiring quick furnace pickup.",
+    "commonFurnaceIssues": "High-altitude combustion air adjustment errors, dusty flame sensors, and thermocouple oxidation.",
+    "licensingBody": "New Mexico Regulation and Licensing Department (Construction Industries Division)",
+    "licensingUrl": "https://www.rld.nm.gov/construction-industries/"
+  },
+  {
+    "code": "NY",
+    "name": "New York",
+    "slug": "new-york",
+    "capital": "Albany",
+    "climateOverview": "Severe lake-effect snow in western/upstate NY combined with damp, biting coastal cold and historic brownstone heating in NYC.",
+    "commonFurnaceIssues": "Cracked heat exchangers in legacy systems, failed draft inducers, and frozen high-efficiency condensate lines.",
+    "licensingBody": "New York State Department of State & NYC Department of Buildings",
+    "licensingUrl": "https://dos.ny.gov/"
+  },
+  {
+    "code": "NC",
+    "name": "North Carolina",
+    "slug": "north-carolina",
+    "capital": "Raleigh",
+    "climateOverview": "Varied climate from coastal dampness to freezing Appalachian winters, with sudden ice storms causing power cuts and heat emergencies.",
+    "commonFurnaceIssues": "Dual-fuel heat pump lockout, failed heating elements, and dirty flame sensors stopping ignition cycles.",
+    "licensingBody": "North Carolina State Board of Examiners of Plumbing, Heating and Fire Sprinkler Contractors",
+    "licensingUrl": "https://www.nclicensing.org/"
+  },
+  {
+    "code": "ND",
+    "name": "North Dakota",
+    "slug": "north-dakota",
+    "capital": "Bismarck",
+    "climateOverview": "Extreme continental northern climate with prolonged -30°F wind chills and blizzard conditions where heating outages are hazardous.",
+    "commonFurnaceIssues": "Exhaust terminal icing, intense thermal expansion cracking heat exchangers, and blower motor bearing seizure.",
+    "licensingBody": "North Dakota Secretary of State Contractor Licensing",
+    "licensingUrl": "https://sos.nd.gov/"
+  },
+  {
+    "code": "OH",
+    "name": "Ohio",
+    "slug": "ohio",
+    "capital": "Columbus",
+    "climateOverview": "Cold Midwestern winters with heavy snowfall, sub-zero cold waves, and Lake Erie lake-effect precipitation.",
+    "commonFurnaceIssues": "Hot surface igniter failure, pressure switch diaphragm sticking, and clogged condensate drain lines.",
+    "licensingBody": "Ohio Construction Industry Licensing Board (OCILB)",
+    "licensingUrl": "https://com.ohio.gov/divisions-and-programs/industrial-compliance/boards/ohio-construction-industry-licensing-board"
+  },
+  {
+    "code": "OK",
+    "name": "Oklahoma",
+    "slug": "oklahoma",
+    "capital": "Oklahoma City",
+    "climateOverview": "Volatile southern plains climate with notorious winter ice storms, polar cold snaps, and sudden 40-degree temperature drops.",
+    "commonFurnaceIssues": "Dirty flame sensors, electrical surge damage to control boards from winter storms, and cracked heat exchangers.",
+    "licensingBody": "Oklahoma Construction Industries Board",
+    "licensingUrl": "https://cib.ok.gov/"
+  },
+  {
+    "code": "OR",
+    "name": "Oregon",
+    "slug": "oregon",
+    "capital": "Salem",
+    "climateOverview": "Damp Pacific Northwest marine winters west of the Cascades and cold, snowy high-desert conditions east of the mountains.",
+    "commonFurnaceIssues": "Moisture corrosion on electrical connectors, clogged drain traps in 90%+ condensing furnaces, and blower motor capacitors.",
+    "licensingBody": "Oregon Construction Contractors Board (CCB)",
+    "licensingUrl": "https://www.oregon.gov/ccb"
+  },
+  {
+    "code": "PA",
+    "name": "Pennsylvania",
+    "slug": "pennsylvania",
+    "capital": "Harrisburg",
+    "climateOverview": "Cold humid continental climate with heavy lake-effect snow in Erie, mountain freezes across the Alleghenies, and damp coastal cold in Philly.",
+    "commonFurnaceIssues": "Cracked heat exchangers in older homes, worn inducer motor fans, and failed pilot ignition controls.",
+    "licensingBody": "Pennsylvania Attorney General Home Improvement Contractor Registration & Local Cities",
+    "licensingUrl": "https://www.attorneygeneral.gov/protect-yourself/home-improvement-contractor/"
+  },
+  {
+    "code": "RI",
+    "name": "Rhode Island",
+    "slug": "rhode-island",
+    "capital": "Providence",
+    "climateOverview": "Coastal New England winter with damp salty air, high winds, and frequent freezing rain storms.",
+    "commonFurnaceIssues": "Salt air corrosion on exterior vents, thermocouple failure in older boilers and furnaces, and limit switch lockouts.",
+    "licensingBody": "Rhode Island Department of Labor and Training",
+    "licensingUrl": "https://dlt.ri.gov/"
+  },
+  {
+    "code": "SC",
+    "name": "South Carolina",
+    "slug": "south-carolina",
+    "capital": "Columbia",
+    "climateOverview": "Subtropical coastal climate with sharp winter frost and sudden inland freezes that strain unserviced heating units.",
+    "commonFurnaceIssues": "Auxiliary heat strip failure, corroded flame sensors from high humidity, and thermostat communication errors.",
+    "licensingBody": "South Carolina Department of Labor, Licensing and Regulation (LLR)",
+    "licensingUrl": "https://llr.sc.gov/"
+  },
+  {
+    "code": "SD",
+    "name": "South Dakota",
+    "slug": "south-dakota",
+    "capital": "Pierre",
+    "climateOverview": "Severe plains winters with howling blizzards, deep wind chills, and prolonged sub-zero stretches requiring uninterrupted heat.",
+    "commonFurnaceIssues": "Vent pipe snow blockages, cracked heat exchangers, and continuous cycling thermal switch degradation.",
+    "licensingBody": "South Dakota Electrical and Mechanical Standards",
+    "licensingUrl": "https://dlr.sd.gov/"
+  },
+  {
+    "code": "TN",
+    "name": "Tennessee",
+    "slug": "tennessee",
+    "capital": "Nashville",
+    "climateOverview": "Varied Mid-South climate with humid freezing rain, Appalachian mountain snow, and sudden arctic polar plunges.",
+    "commonFurnaceIssues": "Igniter fracture, clogged flame sensors, and heat pump auxiliary sequencer failure during ice storm events.",
+    "licensingBody": "Tennessee Board for Licensing Contractors (CMC-C Mechanical)",
+    "licensingUrl": "https://www.tn.gov/commerce/regboards/contractors.html"
+  },
+  {
+    "code": "TX",
+    "name": "Texas",
+    "slug": "texas",
+    "capital": "Austin",
+    "climateOverview": "Vulnerable to sudden Arctic cold snaps ('Blue Northers') and winter polar vortex events that drop temperatures 40 degrees in hours, straining systems unused to heavy loads.",
+    "commonFurnaceIssues": "Flame sensor oxidation during long summer AC seasons, electrical relay issues, auxiliary heat strip burnout, and cracked heat exchangers.",
+    "licensingBody": "Texas Department of Licensing and Regulation (TDLR HVAC License)",
+    "licensingUrl": "https://www.tdlr.texas.gov/acr/acr.htm"
+  },
+  {
+    "code": "UT",
+    "name": "Utah",
+    "slug": "utah",
+    "capital": "Salt Lake City",
+    "climateOverview": "High-altitude mountain and valley winters with heavy Wasatch snowfall, severe temperature inversions, and sub-freezing night temperatures.",
+    "commonFurnaceIssues": "Altitude-adjusted gas pressure drift, draft inducer fan motor failure, and heat exchanger metal fatigue.",
+    "licensingBody": "Utah Division of Occupational and Professional Licensing (DOPL)",
+    "licensingUrl": "https://dopl.utah.gov/"
+  },
+  {
+    "code": "VT",
+    "name": "Vermont",
+    "slug": "vermont",
+    "capital": "Montpelier",
+    "climateOverview": "Deep New England northern climate with sustained sub-zero temperatures, heavy snowpack, and rigorous heating demands.",
+    "commonFurnaceIssues": "Condensate line freezing in unheated spaces, cracked heat exchangers, and ignition lockout errors.",
+    "licensingBody": "Vermont Division of Fire Safety (Plumbing and Heating Licensing)",
+    "licensingUrl": "https://firesafety.vermont.gov/"
+  },
+  {
+    "code": "VA",
+    "name": "Virginia",
+    "slug": "virginia",
+    "capital": "Richmond",
+    "climateOverview": "Mid-Atlantic winter weather featuring wet snow, ice storms, and biting coastal winds off the Chesapeake Bay and Atlantic.",
+    "commonFurnaceIssues": "Dual-fuel defrost board failure, clogged flame sensors, and inducer motor capacitor burnout.",
+    "licensingBody": "Virginia Department of Professional and Occupational Regulation (DPOR)",
+    "licensingUrl": "https://www.dpor.virginia.gov/"
+  },
+  {
+    "code": "WA",
+    "name": "Washington",
+    "slug": "washington",
+    "capital": "Olympia",
+    "climateOverview": "Damp maritime winters with constant rainfall and high humidity west of the Cascades, and snowy, freezing continental weather in Eastern Washington.",
+    "commonFurnaceIssues": "Moisture corrosion on control circuit boards, blocked condensation traps in 90%+ AFUE furnaces, and blower motor failure.",
+    "licensingBody": "Washington State Department of Labor & Industries",
+    "licensingUrl": "https://lni.wa.gov/"
+  },
+  {
+    "code": "WV",
+    "name": "West Virginia",
+    "slug": "west-virginia",
+    "capital": "Charleston",
+    "climateOverview": "Appalachian mountain winter with heavy snowfall, high winds, and remote mountain freeze conditions.",
+    "commonFurnaceIssues": "Draft inducer motor burnout, dirty burner orifices, and thermocouple failure on standing pilot units.",
+    "licensingBody": "West Virginia Division of Labor (Contractor Licensing Board)",
+    "licensingUrl": "https://labor.wv.gov/"
+  },
+  {
+    "code": "WI",
+    "name": "Wisconsin",
+    "slug": "wisconsin",
+    "capital": "Madison",
+    "climateOverview": "Severe Upper Midwest winters with polar vortex events, heavy lake-effect snow, and weeks of sub-zero temperatures.",
+    "commonFurnaceIssues": "Pressure switch failure from iced vent pipes, cracked primary heat exchangers, and draft inducer bearing lockups.",
+    "licensingBody": "Wisconsin Department of Safety and Professional Services (DSPS)",
+    "licensingUrl": "https://dsps.wi.gov/"
+  },
+  {
+    "code": "WY",
+    "name": "Wyoming",
+    "slug": "wyoming",
+    "capital": "Cheyenne",
+    "climateOverview": "High elevation, extreme winter winds, and intense sub-zero temperatures where dependable furnace heating is critical to survival.",
+    "commonFurnaceIssues": "Extreme wind backdrafting down exhaust flues, frozen intake terminals, and blower capacitor degradation.",
+    "licensingBody": "Wyoming Local Municipal Contractor Boards",
+    "licensingUrl": "https://wyoming.gov/"
+  },
+  {
+    "code": "DC",
+    "name": "District of Columbia",
+    "slug": "district-of-columbia",
+    "capital": "Washington",
+    "climateOverview": "Mid-Atlantic humid cold with periodic severe winter storms, slush, and freezing rain impacting historic row houses and modern apartments.",
+    "commonFurnaceIssues": "Ductwork static pressure restriction in retrofitted historic brick homes, faulty electronic igniters, and thermal limit trips.",
+    "licensingBody": "DC Department of Licensing and Consumer Protection (DLCP)",
+    "licensingUrl": "https://dlcp.dc.gov/"
+  }
+]
