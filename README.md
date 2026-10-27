@@ -1,10 +1,10 @@
 # FurnaceFix Pros - Nationwide Furnace Repair Website
 
-Pure static, high-performance, mobile-first, SEO-optimized nationwide local business website for **FurnaceFix Pros** (`furnacefixpros.com`).
+Pure static, high-performance, mobile-first, SEO-optimized nationwide local business website for **FurnaceFix Pros** (`furnacefixpros.us`).
 
 - **Niche:** Furnace Repair
 - **Primary Keyword:** Same Day Furnace Repair
-- **Hotline / Dispatch:** +1 (833) 803-0415
+- **Hotline / Dispatch:** (833) 803-0415
 - **Hierarchy:** Strict 3-level URL depth & 3-step breadcrumbs
 - **City Coverage:** 29,781 US cities across all 50 states + DC
 - **Architecture:** 100% Pure Static (Zero runtime server-side generation / Zero SSR)
@@ -52,7 +52,7 @@ npm run deploy
 ```
 This uses the included `wrangler.toml`:
 ```toml
-name = "furnacefixpros"
+name = "furnace-repair"
 compatibility_date = "2024-03-20"
 assets = { directory = "dist" }
 ```
